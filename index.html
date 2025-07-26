@@ -1,1 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anna Brooke Healing - Navigate Life's Transitions with Truth</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #4a4a4a;
+            background-color: #fefefe;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #f8f4f0 0%, #ede7e0 100%);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #8b5a3c;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #6b4e37;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #8b5a3c;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f4f1eb 0%, #e8ddd4 100%);
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            color: #6b4e37;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #8b5a3c;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #8b5a3c;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(139, 90, 60, 0.3);
+        }
+
+        .cta-button:hover {
+            background: #6b4e37;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(139, 90, 60, 0.4);
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about h2 {
+            font-size: 2.2rem;
+            color: #6b4e37;
+            margin-bottom: 2rem;
+        }
+
+        .about p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: #5a5a5a;
+        }
+
+        .quote {
+            font-style: italic;
+            color: #8b5a3c;
+            font-size: 1.2rem;
+            border-left: 4px solid #8b5a3c;
+            padding-left: 20px;
+            margin: 2rem 0;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f9f6f2 0%, #f0ebe5 100%);
+        }
+
+        .services h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            color: #6b4e37;
+            margin-bottom: 3rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            color: #6b4e37;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-button {
+            background: #d4b5a0;
+            color: #6b4e37;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .service-button:hover {
+            background: #8b5a3c;
+            color: white;
+        }
+
+        /* Quiz Section */
+        .quiz-section {
+            padding: 80px 0;
+            background: white;
+            text-align: center;
+        }
+
+        .quiz-section h2 {
+            font-size: 2rem;
+            color: #6b4e37;
+            margin-bottom: 2rem;
+        }
+
+        .quiz-section p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .sparkle {
+            font-size: 2rem;
+            color: #d4b5a0;
+            margin: 1rem 0;
+        }
+
+        /* Meet Anna Section */
+        .meet-anna {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f4f1eb 0%, #e8ddd4 100%);
+        }
+
+        .anna-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .anna-image {
+            width: 100%;
+            height: 400px;
+            background: #d4b5a0;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .anna-text h2 {
+            font-size: 2.2rem;
+            color: #6b4e37;
+            margin-bottom: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #6b4e37;
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+            color: #d4b5a0;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #e0e0e0;
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: #d4b5a0;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: #8b5a3c;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background: #d4b5a0;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #8b5a3c;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            text-align: center;
+            color: #b0b0b0;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .faq h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            color: #6b4e37;
+            margin-bottom: 3rem;
+        }
+
+        .faq-item {
+            background: #f9f6f2;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .faq-question {
+            background: #8b5a3c;
+            color: white;
+            padding: 1.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: #6b4e37;
+        }
+
+        .faq-answer {
+            padding: 1.5rem;
+            display: none;
+            color: #666;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .about-content,
+            .anna-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">Anna Brooke Healing</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Wherever you are in life's transitions, I help you tell yourself the truth faster.</h1>
+            <p>Whether you're navigating change, stepping into a new chapter, or seeking nurturing support for the possibilities ahead—you're in the right place.</p>
+            <a href="#contact" class="cta-button">Book a Free Connection Call - 15 minutes</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div>
+                    <h2>Helping you navigate life's transitions by embracing your truth.</h2>
+                    <p>Whether you're healing old wounds, seeking creative expression, or honoring a major life moment, Anna Brooke Healing offers an integrative path forward—one rooted in presence, compassion, and transformation.</p>
+                    
+                    <div class="quote">
+                        "Create a life that lights you up from the inside, one healing step at a time, and make your magic happen."
+                    </div>
+                </div>
+                <div>
+                    <p>Anna offers a safe, compassionate space to help you reconnect with your heart, rediscover your inner wisdom, and create a life infused with meaning, purpose, and joy.</p>
+                    
+                    <p>Through breathwork, empowerment counseling, and restorative self-care, emotional healing and growth seekers are guided toward greater balance and wholeness.</p>
+                    
+                    <p>No matter your path, each offering is designed to help you mark life's transitions with clarity, heart, and truth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Pick Your Path Below</h2>
+            <p style="text-align: center; font-size: 1.1rem; color: #666; margin-bottom: 2rem;">
+                Explore the path that speaks to your journey today. Discover holistic healing, creative expression, and meaningful rituals—each uniquely tailored to where you are now.
+            </p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Healing & Growth</h3>
+                    <p><strong>A Safe Space to Heal, Grow, and Transform.</strong></p>
+                    <p>For those seeking emotional healing and personal growth through breathwork, counseling, or self-care.</p>
+                    <a href="#" class="service-button">Explore The Healing Path</a>
+                </div>
+
+                <div class="service-card">
+                    <h3>Writing & Creativity Explorer</h3>
+                    <p><strong>Find Your Truth Through the Power of Words.</strong></p>
+                    <p>For those using writing to process transitions and unlock creativity.</p>
+                    <a href="#" class="service-button">Explore the Writer's Journey</a>
+                </div>
+
+                <div class="service-card">
+                    <h3>Meaningful Life Ceremonies</h3>
+                    <p><strong>For couples or individuals in major life transitions, seeking personalized ceremonies.</strong></p>
+                    <p>Celebrate the moments that matter with ceremonies rooted in your truth and crafted with heart. From unions to new chapters, each ritual is a reflection of your unique journey.</p>
+                    <a href="#" class="service-button">Begin Planning Your Ceremony</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Section -->
+    <section class="quiz-section">
+        <div class="container">
+            <h2>Not Sure Where to Begin?</h2>
+            <p>Life's transitions aren't always clear-cut and neither is the path to healing. If you're not sure where to start, take a moment to breathe… then take this gentle, guided quiz.</p>
+            <p>In just a few minutes, you'll receive a personalized suggestion for which path—healing, writing, or ceremony might best support you right now.</p>
+            
+            <div class="sparkle">✨</div>
+            
+            <a href="#" class="cta-button">Take the "Find Your Path" Quiz</a>
+            <p style="margin-top: 1rem; font-style: italic;">Takes less than 2 minutes to complete.</p>
+        </div>
+    </section>
+
+    <!-- Meet Anna Section -->
+    <section class="meet-anna">
+        <div class="container">
+            <div class="anna-content">
+                <div class="anna-image">
+                    Anna's Photo
+                </div>
+                <div class="anna-text">
+                    <h2>Meet Anna</h2>
+                    <p>I believe we are all here to connect to our inner purpose and make our unique magic happen. Through the practices of self-love, breathwork, movement and conscious choice, I create spaces of compassion that foster self-acceptance and self awareness.</p>
+                    
+                    <p>I believe we are each whole, extraordinary beings with sacred opportunities for growth and self reclamation in every moment. It is my intention to support the blossoming, growth and unfoldment of the sacred, conscious self within each one of us, one step at a time.</p>
+                    
+                    <p>Anna started her healing path in 2001 and has helped people through transitions big and small for over twenty years. Whether you are navigating major life changes or a series of small shifts, Anna's work offers a soft place for you to land.</p>
+                    
+                    <a href="#contact" class="cta-button" style="margin-top: 2rem;">Book a Free Connection Call - 15 minutes</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <h2>Answers to Your Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">What services does Anna Brooke Healing offer for people going through life transitions?</div>
+                <div class="faq-answer">Anna Brooke Healing offers three main paths: Healing & Growth through breathwork and counseling, Writing & Creativity exploration for processing transitions, and Meaningful Life Ceremonies for major life moments. Each path is designed to support you wherever you are in your journey.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How can breathwork—especially Rebirthing Breathwork—help with emotional healing or grief?</div>
+                <div class="faq-answer">Breathwork is a powerful tool for accessing and releasing stored emotions, trauma, and grief. Rebirthing Breathwork specifically helps you reconnect with your natural breathing patterns while creating a safe space for emotional processing and healing.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Who is Anna Brooke Healing for?</div>
+                <div class="faq-answer">Anna's work is for anyone navigating life's transitions—whether you're healing old wounds, seeking creative expression, going through major life changes, or simply wanting to reconnect with your inner truth and purpose.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How does healing through writing and creative expression work at Anna Brooke Healing?</div>
+                <div class="faq-answer">Writing and creative expression provide powerful pathways for self-discovery and healing. Through workshops, coaching, and soulful writing practices, you'll explore your inner truth while unlocking personal growth and creative potential.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Can I book a personalized ceremony or wedding officiant in Maine?</div>
+                <div class="faq-answer">Yes! Anna crafts bespoke ceremonies that honor the sacredness of your journey. Whether for weddings, life transitions, or other meaningful moments, each ceremony is personalized to reflect your unique truth and story.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How is Anna Brooke Healing different from traditional therapy or coaching?</div>
+                <div class="faq-answer">Anna's approach is integrative, combining breathwork, empowerment counseling, creative expression, and spiritual practices. It's designed to help you reconnect with your inner wisdom and create lasting transformation through compassionate, holistic healing.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p>anna@annabrookehealing.com</p>
+                    <p>(646) 943-4635</p>
+                    <p>21 Rideout Rd.</p>
+                    
+                    <div class="social-icons">
+                        <a href="#" class="social-icon">f</a>
+                        <a href="#" class="social-icon">i</a>
+                        <a href="#" class="social-icon">t</a>
+                        <a href="#" class="social-icon">@</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#services">Services</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Get Started</h3>
+                    <a href="#">Book a Free Connection Call</a>
+                    <a href="#">Take the Find Your Path Quiz</a>
+                    <a href="#">Join 21 Days of Self-Care</a>
+                    <a href="#">Share Your Testimonial</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Anna Brooke Healing. All rights reserved.</p>
+                <p>Not ready to book a call yet? You can begin with a free 21-day self-care journey—delivered straight to your inbox.</p>
+                <p>💌 <a href="#" style="color: #d4b5a0;">Join 21 Days of Self-Care »</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Toggle Functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const isOpen = answer.style.display === 'block';
+                
+                // Close all other answers
+                document.querySelectorAll('.faq-answer').forEach(ans => {
+                    ans.style.display = 'none';
+                });
+                
+                // Toggle current answer
+                answer.style.display = isOpen ? 'none' : 'block';
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

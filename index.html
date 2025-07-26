@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anna Brooke Healing - Navigate Life's Transitions with Truth</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
     <style>
         * {
             margin: 0;
@@ -12,16 +18,38 @@
         }
 
         body {
-            font-family: 'Georgia', serif;
+            font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
             color: #4a4a4a;
             background-color: #fefefe;
+            font-weight: 400;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+        }
+
+        /* Typography Hierarchy */
+        h1, .h1 {
+            font-family: 'Playfair Display', serif; /* Fallback for Ostia Antica */
+            font-weight: 700;
+        }
+
+        h2, .h2 {
+            font-family: 'Crimson Text', serif; /* Fallback for ITC Clearface */
+            font-weight: 600;
+        }
+
+        h3, h4, h5, h6 {
+            font-family: 'Crimson Text', serif;
+            font-weight: 600;
+        }
+
+        p, body, .body {
+            font-family: 'Source Sans Pro', sans-serif; /* Fallback for Brandon Grotesque */
+            font-weight: 400;
         }
 
         /* Header */
@@ -42,8 +70,9 @@
         }
 
         .logo {
+            font-family: 'Playfair Display', serif;
             font-size: 1.8rem;
-            font-weight: bold;
+            font-weight: 700;
             color: #9b4d32;
         }
 
@@ -54,6 +83,7 @@
         }
 
         .nav-links a {
+            font-family: 'Source Sans Pro', sans-serif;
             text-decoration: none;
             color: #164a50;
             font-weight: 500;
@@ -122,37 +152,44 @@
         }
 
         .hero h1 {
+            font-family: 'Playfair Display', serif;
             font-size: 3.2rem;
             color: white;
             margin-bottom: 1.5rem;
             line-height: 1.2;
             text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
-            font-weight: bold;
+            font-weight: 700;
         }
 
         .hero-subheading {
+            font-family: 'Source Sans Pro', sans-serif;
             font-size: 1.4rem;
             color: #f3d9d0;
             margin-bottom: 2rem;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
             line-height: 1.4;
+            font-weight: 400;
         }
 
         .hero-description {
+            font-family: 'Source Sans Pro', sans-serif;
             font-size: 1.2rem;
             color: white;
             margin-bottom: 1.5rem;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
             line-height: 1.5;
+            font-weight: 400;
         }
 
         .hero-quote {
+            font-family: 'Source Sans Pro', sans-serif;
             font-style: italic;
             color: #f3d9d0;
             font-size: 1.3rem;
             margin-bottom: 2.5rem;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
             line-height: 1.4;
+            font-weight: 400;
         }
 
         .hero-image-container {
@@ -170,6 +207,7 @@
             align-items: center;
             justify-content: center;
             color: white;
+            font-family: 'Source Sans Pro', sans-serif;
             font-size: 1.3rem;
             box-shadow: 0 25px 50px rgba(0,0,0,0.4);
             border: 6px solid rgba(255,255,255,0.3);
@@ -190,6 +228,7 @@
         }
 
         .cta-button {
+            font-family: 'Source Sans Pro', sans-serif;
             display: inline-block;
             background: #e27756;
             color: white;
@@ -232,24 +271,30 @@
         }
 
         .about h2 {
+            font-family: 'Crimson Text', serif;
             font-size: 2.2rem;
             color: #164a50;
             margin-bottom: 2rem;
+            font-weight: 600;
         }
 
         .about p {
+            font-family: 'Source Sans Pro', sans-serif;
             font-size: 1.1rem;
             margin-bottom: 1.5rem;
             color: #5a5a5a;
+            font-weight: 400;
         }
 
         .quote {
+            font-family: 'Source Sans Pro', sans-serif;
             font-style: italic;
             color: #9b4d32;
             font-size: 1.2rem;
             border-left: 4px solid #e27756;
             padding-left: 20px;
             margin: 2rem 0;
+            font-weight: 400;
         }
 
         /* Services Section */
@@ -259,10 +304,12 @@
         }
 
         .services h2 {
+            font-family: 'Crimson Text', serif;
             text-align: center;
             font-size: 2.2rem;
             color: #164a50;
             margin-bottom: 3rem;
+            font-weight: 600;
         }
 
         .services-grid {
@@ -288,17 +335,22 @@
         }
 
         .service-card h3 {
+            font-family: 'Crimson Text', serif;
             font-size: 1.5rem;
             color: #164a50;
             margin-bottom: 1rem;
+            font-weight: 600;
         }
 
         .service-card p {
+            font-family: 'Source Sans Pro', sans-serif;
             color: #666;
             margin-bottom: 1.5rem;
+            font-weight: 400;
         }
 
         .service-button {
+            font-family: 'Source Sans Pro', sans-serif;
             background: #ce8f29;
             color: white;
             padding: 12px 25px;
@@ -321,16 +373,20 @@
         }
 
         .quiz-section h2 {
+            font-family: 'Crimson Text', serif;
             font-size: 2rem;
             color: #164a50;
             margin-bottom: 2rem;
+            font-weight: 600;
         }
 
         .quiz-section p {
+            font-family: 'Source Sans Pro', sans-serif;
             font-size: 1.1rem;
             color: #666;
             max-width: 600px;
             margin: 0 auto 2rem;
+            font-weight: 400;
         }
 
         .sparkle {
@@ -361,14 +417,22 @@
             align-items: center;
             justify-content: center;
             color: white;
+            font-family: 'Source Sans Pro', sans-serif;
             font-size: 1.2rem;
             box-shadow: 0 10px 30px rgba(163, 182, 229, 0.3);
         }
 
         .anna-text h2 {
+            font-family: 'Crimson Text', serif;
             font-size: 2.2rem;
             color: #164a50;
             margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .anna-text p {
+            font-family: 'Source Sans Pro', sans-serif;
+            font-weight: 400;
         }
 
         /* Footer */
@@ -385,15 +449,19 @@
         }
 
         .footer-section h3 {
+            font-family: 'Crimson Text', serif;
             margin-bottom: 1.5rem;
             color: #f3d9d0;
+            font-weight: 600;
         }
 
         .footer-section p, .footer-section a {
+            font-family: 'Source Sans Pro', sans-serif;
             color: #e0e0e0;
             text-decoration: none;
             margin-bottom: 0.5rem;
             display: block;
+            font-weight: 400;
         }
 
         .footer-section a:hover {
@@ -431,6 +499,11 @@
             color: #b0b0b0;
         }
 
+        .footer-bottom p {
+            font-family: 'Source Sans Pro', sans-serif;
+            font-weight: 400;
+        }
+
         .footer-bottom a {
             color: #e27756;
         }
@@ -442,10 +515,12 @@
         }
 
         .faq h2 {
+            font-family: 'Crimson Text', serif;
             text-align: center;
             font-size: 2.2rem;
             color: #164a50;
             margin-bottom: 3rem;
+            font-weight: 600;
         }
 
         .faq-item {
@@ -457,6 +532,7 @@
         }
 
         .faq-question {
+            font-family: 'Source Sans Pro', sans-serif;
             background: #164a50;
             color: white;
             padding: 1.5rem;
@@ -470,10 +546,12 @@
         }
 
         .faq-answer {
+            font-family: 'Source Sans Pro', sans-serif;
             padding: 1.5rem;
             display: none;
             color: #666;
             background: white;
+            font-weight: 400;
         }
 
         /* Responsive Design */

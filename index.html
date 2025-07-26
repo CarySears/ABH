@@ -36,15 +36,17 @@
             <style>
             :root {
                 /* Anna's Brand Colors */
-                --primary-color: #9b4d32; /* rust */
-                --accent-color: #e27756; /* coral */
-                --text-color: #4a4a4a;
-                --background-color: #fefefe;
-                --shell-color: #f3d9d0;
+                --primary-color: var(--text-color); /* sea - for all text */
+                --accent-color: var(--text-color); /* sea - for all text */
+                --text-color: var(--text-color); /* sea - for all text */
+                --background-color: #f3d9d0; /* shell - for all backgrounds */
+                --shell-color: #f3d9d0; /* shell */
                 --sand-color: #f2ede2;
-                --ochre-color: #ce8f29;
-                --sea-color: #164a50;
+                --ochre-color: var(--text-color);
+                --sea-color: var(--text-color);
                 --sky-color: #a3b6e5;
+                --rust-color: var(--text-color);
+                --coral-color: var(--text-color);
             }
             
             * {
@@ -117,7 +119,7 @@
 
         /* Header */
         header {
-            background: linear-gradient(135deg, #f2ede2 0%, #f3d9d0 100%);
+            background: var(--background-color);
             padding: 1rem 0;
             position: fixed;
             width: 100%;
@@ -136,7 +138,7 @@
             font-family: 'Ostia Antica', 'Playfair Display', 'Times New Roman', Georgia, serif;
             font-size: 1.8rem;
             font-weight: normal;
-            color: #9b4d32;
+            color: var(--text-color);
         }
 
         .nav-links {
@@ -148,13 +150,13 @@
         .nav-links a {
             font-family: 'Brandon Grotesque', 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             text-decoration: none;
-            color: #164a50;
+            color: var(--text-color);
             font-weight: 500;
             transition: color 0.3s ease;
         }
 
         .nav-links a:hover {
-            color: #9b4d32;
+            color: var(--text-color);
         }
 
         /* Hero Section with Parallax Background */
@@ -265,7 +267,7 @@
             width: 380px;
             height: 380px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #e27756 0%, #ce8f29 100%);
+            background: var(--background-color);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -293,7 +295,7 @@
         .cta-button {
             font-family: 'Brandon Grotesque', 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             display: inline-block;
-            background: #e27756;
+            background: var(--background-color);
             color: white;
             padding: 20px 40px;
             text-decoration: none;
@@ -307,7 +309,7 @@
         }
 
         .cta-button:hover {
-            background: #9b4d32;
+            background: var(--background-color);
             transform: translateY(-3px);
             box-shadow: 0 12px 30px rgba(155, 77, 50, 0.5);
         }
@@ -323,7 +325,7 @@
         /* About Section */
         .about {
             padding: 80px 0;
-            background: white;
+            background: var(--background-color);
         }
 
         .about-content {
@@ -336,7 +338,7 @@
         .about h2 {
             font-family: 'ITC Clearface', 'Crimson Text', 'Times New Roman', Georgia, serif;
             font-size: 2.2rem;
-            color: #164a50;
+            color: var(--text-color);
             margin-bottom: 2rem;
             font-weight: 600;
         }
@@ -345,14 +347,14 @@
             font-family: 'Brandon Grotesque', 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             font-size: 1.1rem;
             margin-bottom: 1.5rem;
-            color: #5a5a5a;
+            color: var(--text-color);
             font-weight: 400;
         }
 
         .quote {
             font-family: 'Brandon Grotesque', 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             font-style: italic;
-            color: #9b4d32;
+            color: var(--text-color);
             font-size: 1.2rem;
             border-left: 4px solid #e27756;
             padding-left: 20px;
@@ -363,14 +365,14 @@
         /* Services Section */
         .services {
             padding: 80px 0;
-            background: linear-gradient(135deg, #f3d9d0 0%, #f2ede2 100%);
+            background: var(--background-color);
         }
 
         .services h2 {
             font-family: 'ITC Clearface', 'Crimson Text', 'Times New Roman', Georgia, serif;
             text-align: center;
             font-size: 2.2rem;
-            color: #164a50;
+            color: var(--text-color);
             margin-bottom: 3rem;
             font-weight: 600;
         }
@@ -400,21 +402,21 @@
         .service-card h3 {
             font-family: 'ITC Clearface', 'Crimson Text', 'Times New Roman', Georgia, serif;
             font-size: 1.5rem;
-            color: #164a50;
+            color: var(--text-color);
             margin-bottom: 1rem;
             font-weight: 600;
         }
 
         .service-card p {
             font-family: 'Brandon Grotesque', 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            color: #666;
+            color: var(--text-color);
             margin-bottom: 1.5rem;
             font-weight: 400;
         }
 
         .service-button {
             font-family: 'Brandon Grotesque', 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background: #ce8f29;
+            background: var(--background-color);
             color: white;
             padding: 12px 25px;
             text-decoration: none;
@@ -424,7 +426,7 @@
         }
 
         .service-button:hover {
-            background: #9b4d32;
+            background: var(--background-color);
             color: white;
         }
 
@@ -438,7 +440,7 @@
         .quiz-section h2 {
             font-family: 'ITC Clearface', 'Crimson Text', 'Times New Roman', Georgia, serif;
             font-size: 2rem;
-            color: #164a50;
+            color: var(--text-color);
             margin-bottom: 2rem;
             font-weight: 600;
         }
@@ -446,7 +448,7 @@
         .quiz-section p {
             font-family: 'Brandon Grotesque', 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             font-size: 1.1rem;
-            color: #666;
+            color: var(--text-color);
             max-width: 600px;
             margin: 0 auto 2rem;
             font-weight: 400;
@@ -454,14 +456,14 @@
 
         .sparkle {
             font-size: 2rem;
-            color: #ce8f29;
+            color: var(--text-color);
             margin: 1rem 0;
         }
 
         /* Meet Anna Section */
         .meet-anna {
             padding: 80px 0;
-            background: linear-gradient(135deg, #f2ede2 0%, #f3d9d0 100%);
+            background: var(--background-color);
         }
 
         .anna-content {
@@ -474,7 +476,7 @@
         .anna-image {
             width: 100%;
             height: 400px;
-            background: linear-gradient(135deg, #a3b6e5 0%, #e27756 100%);
+            background: var(--background-color);
             border-radius: 15px;
             display: flex;
             align-items: center;
@@ -488,7 +490,7 @@
         .anna-text h2 {
             font-family: 'ITC Clearface', 'Crimson Text', 'Times New Roman', Georgia, serif;
             font-size: 2.2rem;
-            color: #164a50;
+            color: var(--text-color);
             margin-bottom: 2rem;
             font-weight: 600;
         }
@@ -500,7 +502,7 @@
 
         /* Footer */
         footer {
-            background: #164a50;
+            background: var(--background-color);
             color: white;
             padding: 60px 0 30px;
         }
@@ -520,7 +522,7 @@
 
         .footer-section p, .footer-section a {
             font-family: 'Brandon Grotesque', 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            color: #e0e0e0;
+            color: var(--text-color);
             text-decoration: none;
             margin-bottom: 0.5rem;
             display: block;
@@ -528,7 +530,7 @@
         }
 
         .footer-section a:hover {
-            color: #e27756;
+            color: var(--text-color);
         }
 
         .social-icons {
@@ -540,7 +542,7 @@
         .social-icon {
             width: 40px;
             height: 40px;
-            background: #9b4d32;
+            background: var(--background-color);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -551,7 +553,7 @@
         }
 
         .social-icon:hover {
-            background: #e27756;
+            background: var(--background-color);
         }
 
         .footer-bottom {
@@ -559,7 +561,7 @@
             margin-top: 2rem;
             padding-top: 2rem;
             text-align: center;
-            color: #b0b0b0;
+            color: var(--text-color);
         }
 
         .footer-bottom p {
@@ -568,7 +570,7 @@
         }
 
         .footer-bottom a {
-            color: #e27756;
+            color: var(--text-color);
         }
 
         /* FAQ Section */
@@ -581,13 +583,13 @@
             font-family: 'ITC Clearface', 'Crimson Text', 'Times New Roman', Georgia, serif;
             text-align: center;
             font-size: 2.2rem;
-            color: #164a50;
+            color: var(--text-color);
             margin-bottom: 3rem;
             font-weight: 600;
         }
 
         .faq-item {
-            background: #f3d9d0;
+            background: var(--background-color);
             margin-bottom: 1rem;
             border-radius: 10px;
             overflow: hidden;
@@ -596,7 +598,7 @@
 
         .faq-question {
             font-family: 'Brandon Grotesque', 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background: #164a50;
+            background: var(--background-color);
             color: white;
             padding: 1.5rem;
             cursor: pointer;
@@ -605,14 +607,14 @@
         }
 
         .faq-question:hover {
-            background: #9b4d32;
+            background: var(--background-color);
         }
 
         .faq-answer {
             font-family: 'Brandon Grotesque', 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             padding: 1.5rem;
             display: none;
-            color: #666;
+            color: var(--text-color);
             background: white;
             font-weight: 400;
         }
@@ -731,7 +733,7 @@
         <div class="container">
             <h2>Our Services</h2>
             <p class="section-subheading">Pick Your Path Below</p>
-            <p style="text-align: center; font-size: 1.1rem; color: #666; margin-bottom: 2rem;">
+            <p style="text-align: center; font-size: 1.1rem; color: var(--text-color); margin-bottom: 2rem;">
                 Explore the path that speaks to your journey today. Discover holistic healing, creative expression, and meaningful rituals—each uniquely tailored to where you are now.
             </p>
             
@@ -873,7 +875,7 @@
             <div class="footer-bottom">
                 <p>&copy; 2024 Anna Brooke Healing. All rights reserved.</p>
                 <p>Not ready to book a call yet? You can begin with a free 21-day self-care journey—delivered straight to your inbox.</p>
-                <p>💌 <a href="#" style="color: #e27756;">Join 21 Days of Self-Care »</a></p>
+                <p>💌 <a href="#" style="color: var(--text-color);">Join 21 Days of Self-Care »</a></p>
             </div>
         </div>
     </footer>

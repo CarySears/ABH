@@ -64,45 +64,125 @@
             color: #9b4d32;
         }
 
-        /* Hero Section */
+        /* Hero Section with Wave Background */
         .hero {
-            background: linear-gradient(135deg, #f2ede2 0%, #f3d9d0 100%);
+            position: relative;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #a3b6e5 0%, #164a50 100%);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
             padding: 120px 0 80px;
-            text-align: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 300'%3E%3Cpath d='M0,100 C150,150 350,50 500,100 C650,150 850,50 1000,100 L1000,300 L0,300 Z' fill='%23a3b6e5' fill-opacity='0.3'/%3E%3Cpath d='M0,150 C150,200 350,100 500,150 C650,200 850,100 1000,150 L1000,300 L0,300 Z' fill='%23a3b6e5' fill-opacity='0.5'/%3E%3Cpath d='M0,200 C150,250 350,150 500,200 C650,250 850,150 1000,200 L1000,300 L0,300 Z' fill='%23f3d9d0' fill-opacity='0.7'/%3E%3C/svg%3E") center/cover;
+            animation: wave 20s ease-in-out infinite;
+        }
+
+        @keyframes wave {
+            0%, 100% { transform: translateX(0) translateY(0); }
+            25% { transform: translateX(-20px) translateY(-10px); }
+            50% { transform: translateX(0) translateY(-20px); }
+            75% { transform: translateX(20px) translateY(-10px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            width: 100%;
+        }
+
+        .hero-text {
+            color: white;
         }
 
         .hero h1 {
-            font-size: 2.5rem;
-            color: #164a50;
-            margin-bottom: 1rem;
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 1.5rem;
             line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
-        .hero p {
-            font-size: 1.2rem;
-            color: #9b4d32;
+        .hero-subheading {
+            font-size: 1.3rem;
+            color: #f3d9d0;
             margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: white;
+            margin-bottom: 1.5rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .hero-quote {
+            font-style: italic;
+            color: #f3d9d0;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .hero-image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .anna-hero-image {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #e27756 0%, #ce8f29 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            border: 5px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
         }
 
         .cta-button {
             display: inline-block;
             background: #e27756;
             color: white;
-            padding: 15px 30px;
+            padding: 18px 35px;
             text-decoration: none;
             border-radius: 30px;
             font-weight: 600;
+            font-size: 1.1rem;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(226, 119, 86, 0.3);
+            box-shadow: 0 6px 20px rgba(226, 119, 86, 0.4);
+            text-shadow: none;
         }
 
         .cta-button:hover {
             background: #9b4d32;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(155, 77, 50, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(155, 77, 50, 0.5);
+        }
+
+        .cta-subtitle {
+            display: block;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            opacity: 0.9;
         }
 
         /* About Section */
@@ -370,7 +450,18 @@
             }
 
             .hero h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                text-align: center;
+            }
+
+            .anna-hero-image {
+                width: 280px;
+                height: 280px;
             }
 
             .about-content,
@@ -406,9 +497,23 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="container">
-            <h1>Wherever you are in life's transitions, I help you tell yourself the truth faster.</h1>
-            <p>Whether you're navigating change, stepping into a new chapter, or seeking nurturing support for the possibilities ahead—you're in the right place.</p>
-            <a href="#contact" class="cta-button">Book a Free Connection Call - 15 minutes</a>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Wherever you are in life's transitions, I help you tell yourself the truth faster.</h1>
+                    <p class="hero-subheading">Whether you're navigating change, stepping into a new chapter, or seeking nurturing support for the possibilities ahead—you're in the right place.</p>
+                    <p class="hero-description">Anna offers a safe, compassionate space to help you reconnect with your heart, rediscover your inner wisdom, and create a life infused with meaning, purpose, and joy.</p>
+                    <p class="hero-quote">Create a life that lights you up from the inside, one healing step at a time, and make your magic happen.</p>
+                    <a href="#contact" class="cta-button">
+                        Book a Free Connection call With Anna
+                        <span class="cta-subtitle">15-minutes</span>
+                    </a>
+                </div>
+                <div class="hero-image-container">
+                    <div class="anna-hero-image">
+                        Anna's Photo
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -421,13 +526,13 @@
                     <p>Whether you're healing old wounds, seeking creative expression, or honoring a major life moment, Anna Brooke Healing offers an integrative path forward—one rooted in presence, compassion, and transformation.</p>
                     
                     <div class="quote">
-                        "Create a life that lights you up from the inside, one healing step at a time, and make your magic happen."
+                        "Through breathwork, empowerment counseling, and restorative self-care, emotional healing and growth seekers are guided toward greater balance and wholeness."
                     </div>
                 </div>
                 <div>
-                    <p>Anna offers a safe, compassionate space to help you reconnect with your heart, rediscover your inner wisdom, and create a life infused with meaning, purpose, and joy.</p>
+                    <p>Writers and creatives are invited to explore their inner truth through workshops, coaching, and soulful writing practices that unlock personal growth.</p>
                     
-                    <p>Through breathwork, empowerment counseling, and restorative self-care, emotional healing and growth seekers are guided toward greater balance and wholeness.</p>
+                    <p>For those entering life's pivotal moments—marriage, loss, or new beginnings—Anna crafts bespoke ceremonies that honor the sacredness of your journey.</p>
                     
                     <p>No matter your path, each offering is designed to help you mark life's transitions with clarity, heart, and truth.</p>
                 </div>

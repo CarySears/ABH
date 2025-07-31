@@ -505,7 +505,7 @@
 
         .service-card {
             background: white;
-            padding: 2.5rem;
+            padding: 0;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             text-align: center;
@@ -514,6 +514,42 @@
             display: flex;
             flex-direction: column;
             height: 100%;
+            overflow: hidden;
+        }
+
+        .service-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover .service-image img {
+            transform: scale(1.05);
+        }
+
+        .service-card h3,
+        .service-card p,
+        .service-card .service-button {
+            padding-left: 2.5rem;
+            padding-right: 2.5rem;
+        }
+
+        .service-card h3 {
+            padding-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card .service-button {
+            margin: 2rem 2.5rem 2.5rem 2.5rem;
+            padding: 12px 25px;
         }
 
         .service-card:hover {
@@ -946,8 +982,23 @@
                 gap: 2rem;
             }
 
-            .service-card {
-                padding: 2rem;
+            .service-image {
+                height: 150px;
+            }
+
+            .service-card h3,
+            .service-card p,
+            .service-card .service-button {
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+
+            .service-card h3 {
+                padding-top: 1.5rem;
+            }
+
+            .service-card .service-button {
+                margin: 1.5rem 2rem 2rem 2rem;
             }
 
             .reviews-widget {
@@ -1022,12 +1073,24 @@
                 height: 180px;
             }
 
-            .service-card {
-                padding: 1.5rem;
+            .service-image {
+                height: 120px;
+            }
+
+            .service-card h3,
+            .service-card p,
+            .service-card .service-button {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
             }
 
             .service-card h3 {
                 font-size: 1.3rem;
+                padding-top: 1.2rem;
+            }
+
+            .service-card .service-button {
+                margin: 1.2rem 1.5rem 1.5rem 1.5rem;
             }
 
             .cta-button,
@@ -1148,6 +1211,9 @@
             
             <div class="services-grid">
                 <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://assets.cdn.filesafe.space/jNqy5QsBJRJ9cjslwRNp/media/686e6e6e302cdc38b98aebed.jpeg" alt="Healing and Growth - Peaceful nature scene">
+                    </div>
                     <h3>Healing & Growth</h3>
                     <p><strong>A Safe Space to Heal, Grow, and Transform.</strong></p>
                     <p>For those seeking emotional healing and personal growth through breathwork, counseling, or self-care.</p>
@@ -1155,6 +1221,9 @@
                 </div>
 
                 <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1556703588-6eae2585e025?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wyNzQ4Mjd8MHwxfHNlYXJjaHwzfHxsaWdodHxlbnwwfHx8fDE3NTIwNjc4MTZ8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="Writing and Creativity - Warm light and inspiration">
+                    </div>
                     <h3>Writing & Creativity Explorer</h3>
                     <p><strong>Find Your Truth Through the Power of Words.</strong></p>
                     <p>For those using writing to process transitions and unlock creativity.</p>
@@ -1162,6 +1231,9 @@
                 </div>
 
                 <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://assets.cdn.filesafe.space/jNqy5QsBJRJ9cjslwRNp/media/686e6e17879662bfa844d778.png" alt="Meaningful Life Ceremonies - Sacred ceremonial moments">
+                    </div>
                     <h3>Meaningful Life Ceremonies</h3>
                     <p><strong>For couples or individuals in major life transitions, seeking personalized ceremonies.</strong></p>
                     <p>Celebrate the moments that matter with ceremonies rooted in your truth and crafted with heart. From unions to new chapters, each ritual is a reflection of your unique journey.</p>

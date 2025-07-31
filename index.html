@@ -1040,5 +1040,29 @@
             }
         });
     </script>
+
+    <!-- Start Engagement Widget Script -->
+    <script>
+        window.engagementContextExtra = {
+            // Add your custom data here
+        };
+        (function (w, i, d, g, e, t) {
+            const s = w.createElement(i);
+            d.forEach(([k, v]) => s.setAttribute(k, v));
+            w.body.appendChild(s);
+        })(
+            document,
+            'script',
+            [['async', 1],
+                ['crossorigin', 1],
+                ['type', 'module'],
+                ['id', 'engagementWidget'],
+                ['src', 'https://cdn.chatwidgets.net/widget/livechat/bundle.js'],
+                ['data-env', '//graph.mycrmsupport.net'],
+                ['data-instance', 'aIub4sWb7tR2KUcj'],
+                ['data-container', '#engagement-widget-container']]
+        );
+    </script>
+    <!-- End Engagement Widget Script -->
 </body>
 </html>

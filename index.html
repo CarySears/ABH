@@ -421,6 +421,22 @@
             background: var(--background-color);
         }
 
+        .about-hero-image {
+            width: 100%;
+            height: 300px;
+            margin-bottom: 3rem;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .about-hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -909,6 +925,11 @@
                 background-attachment: scroll;
             }
 
+            .about-hero-image {
+                height: 200px;
+                margin-bottom: 2rem;
+            }
+
             .about-content,
             .anna-content {
                 grid-template-columns: 1fr;
@@ -989,6 +1010,11 @@
 
             .hero-description {
                 font-size: 0.9rem;
+            }
+
+            .about-hero-image {
+                height: 180px;
+                margin-bottom: 1.5rem;
             }
 
             .anna-hero-image {
@@ -1082,6 +1108,9 @@
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
+            <div class="about-hero-image">
+                <img src="https://images.unsplash.com/photo-1466278313810-9aca9abea861?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wyNzQ4Mjd8MHwxfHNlYXJjaHwxMXx8bmF2aWdhdGV8ZW58MHx8fHwxNzUyMDY3Mzk2fDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Navigate life's transitions with compass and guidance">
+            </div>
             <div class="about-content">
                 <div>
                     <h2>About Anna Brooke Healing</h2>

@@ -172,11 +172,33 @@
             text-decoration: none;
             color: var(--text-color);
             font-weight: 500;
-            transition: color 0.3s ease;
+            position: relative;
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--sky-color);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
         }
 
         .nav-links a:hover {
             color: var(--text-color);
+            background: rgba(163, 182, 229, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .nav-links a:hover::after {
+            width: 80%;
         }
 
         /* Hero Section with Parallax Background */

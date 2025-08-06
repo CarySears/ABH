@@ -55,6 +55,18 @@
                 box-sizing: border-box;
             }
 
+            /* Animation Keyframes */
+            @keyframes fadeInFromLeft {
+                0% {
+                    opacity: 0;
+                    transform: translateX(-50px);
+                }
+                100% {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+
         body {
             font-family: 'Brandon Grotesque', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -98,42 +110,39 @@
         }
 
         p {
-            font-family: 'Brandon Grotesque', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            font-weight: 500;
-            font-size: 1.1rem;
-            line-height: 1.7;
+            font-family: 'Brandon Grotesque', 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 1rem;
+            line-height: 1.6;
             margin-bottom: 1rem;
             color: var(--text-color);
+            font-weight: 400;
         }
 
         /* Header Styles */
         header {
-            background-color: var(--background-color);
-            padding: 1rem 0;
-            box-shadow: 0 2px 10px rgba(22, 74, 80, 0.1);
-            position: sticky;
+            background: rgba(242, 237, 226, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
             top: 0;
+            left: 0;
+            right: 0;
             z-index: 1000;
+            box-shadow: 0 2px 20px rgba(22, 74, 80, 0.1);
         }
 
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 1rem 0;
         }
 
         .logo {
-            display: flex;
-            align-items: center;
-            font-family: 'ITC Clearface', serif;
-            font-size: 1.5rem;
+            font-family: 'Ostia Antica', 'Playfair Display', 'Times New Roman', Georgia, serif;
+            font-size: 1.8rem;
             font-weight: normal;
             color: var(--primary-color);
-        }
-
-        .logo img {
-            height: 40px;
-            margin-right: 10px;
+            text-decoration: none;
         }
 
         .nav-links {
@@ -143,202 +152,218 @@
         }
 
         .nav-links a {
-            text-decoration: none;
             color: var(--text-color);
+            text-decoration: none;
             font-weight: 500;
             transition: color 0.3s ease;
+            position: relative;
         }
 
-        .nav-links a:hover {
-            color: var(--coral-color);
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background-color: var(--accent-color);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
         }
 
+        .nav-links a:hover::after {
+            width: 80%;
+        }
+
+        /* Hero Section with Parallax Background */
+        .hero {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-parallax-bg {
+            position: absolute;
+            top: -20%;
+            left: -20%;
+            width: 140%;
+            height: 140%;
+            background-image: url('https://images.unsplash.com/photo-1518715159541-e12050b5dd1e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wyNzQ4Mjd8MHwxfHNlYXJjaHwyNXx8bWFyYmxlfGVufDB8fHx8MTc1MjAwNDQwMHww&ixlib=rb-4.1.0&q=80&w=1080');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            will-change: transform;
+            z-index: 1;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(22, 74, 80, 0.6);
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            max-width: 800px;
+            margin: 6rem auto 0;
+            padding: 0 20px;
+        }
+
+        .hero-text {
+            color: var(--text-color);
+            background: rgba(242, 237, 226, 0.95);
+            padding: 3rem;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero h1 {
+            font-family: 'Ostia Antica', 'Playfair Display', 'Times New Roman', Georgia, serif;
+            font-size: 3.5rem;
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            font-weight: normal;
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: fadeInFromLeft 1.2s ease-out 0.5s forwards;
+        }
+
+        .hero-description {
+            font-family: 'Brandon Grotesque', 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 1.2rem;
+            color: var(--text-color);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        /* Parallax Services Section */
+        .parallax-services-wrapper {
+            position: relative;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .parallax-services-bg {
+            position: absolute;
+            top: -20%;
+            left: -20%;
+            width: 140%;
+            height: 140%;
+            background-image: url('https://assets.cdn.filesafe.space/jNqy5QsBJRJ9cjslwRNp/media/44a94ead-8ce0-4d17-aeeb-4adfa1963160.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            will-change: transform;
+            z-index: 1;
+        }
+
+        .parallax-services-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(242, 237, 226, 0.3);
+            z-index: 2;
+        }
+
+        .services-content {
+            position: relative;
+            z-index: 3;
+            padding: 8rem 0;
+        }
+
+        .services-content .container {
+            background: rgba(242, 237, 226, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 4rem;
+            border-radius: 12px;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-button {
+            font-family: 'Brandon Grotesque', 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            display: inline-block;
+            background: var(--background-color);
+            color: var(--text-color);
+            padding: 20px 40px;
+            text-decoration: none;
+            border-radius: 35px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(22, 74, 80, 0.3);
+            text-shadow: none;
+            border: 2px solid var(--text-color);
+            margin-top: 2rem;
+        }
+
+        .cta-button:hover {
+            background: var(--text-color);
+            color: var(--background-color);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(22, 74, 80, 0.4);
+        }
+
+        /* Mobile Navigation */
         .mobile-menu-toggle {
             display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--text-color);
+            flex-direction: column;
             cursor: pointer;
+            padding: 5px;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-color);
+            margin: 3px 0;
+            transition: 0.3s;
         }
 
         .mobile-nav {
             display: none;
-            position: absolute;
-            top: 100%;
+            position: fixed;
+            top: 80px;
             left: 0;
-            width: 100%;
-            background-color: var(--background-color);
-            box-shadow: 0 2px 10px rgba(22, 74, 80, 0.1);
+            right: 0;
+            background: rgba(242, 237, 226, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 999;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .mobile-nav.active {
+            display: block;
         }
 
         .mobile-nav ul {
             list-style: none;
-            padding: 1rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
         }
 
         .mobile-nav a {
-            display: block;
-            padding: 0.75rem 2rem;
-            text-decoration: none;
-            color: var(--text-color);
-            border-bottom: 1px solid rgba(22, 74, 80, 0.1);
-        }
-
-        /* Service Hero Section */
-        .service-hero {
-            padding: 4rem 0;
-            background: linear-gradient(135deg, var(--sky-color) 0%, var(--shell-color) 100%);
-            text-align: center;
-        }
-
-        .service-hero h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-        }
-
-        .service-hero .subtitle {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--coral-color);
-            margin-bottom: 1rem;
-        }
-
-        .service-hero .description {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto 2rem;
-        }
-
-        .breadcrumb {
-            margin-bottom: 2rem;
-        }
-
-        .breadcrumb a {
             color: var(--text-color);
             text-decoration: none;
-            opacity: 0.7;
-        }
-
-        .breadcrumb a:hover {
-            opacity: 1;
-            color: var(--coral-color);
-        }
-
-        /* Service Content */
-        .service-content {
-            padding: 4rem 0;
-        }
-
-        .service-section {
-            margin-bottom: 4rem;
-        }
-
-        .service-section h2 {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .service-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .service-item {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(22, 74, 80, 0.1);
-            text-align: center;
-        }
-
-        .service-item h3 {
-            color: var(--ochre-color);
-            margin-bottom: 1rem;
-        }
-
-        .service-item .icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: var(--sea-color);
-        }
-
-        .cta-section {
-            background: var(--shell-color);
-            padding: 4rem 0;
-            text-align: center;
-            border-radius: 20px;
-            margin: 4rem 0;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: var(--ochre-color);
-            color: white;
-            padding: 1rem 2rem;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
             font-size: 1.1rem;
-            transition: all 0.3s ease;
-            margin-top: 1rem;
-        }
-
-        .cta-button:hover {
-            background: var(--rust-color);
-            transform: translateY(-2px);
-        }
-
-        /* Writing-specific styles */
-        .writing-quote {
-            font-style: italic;
-            font-size: 1.3rem;
-            text-align: center;
-            color: var(--ochre-color);
-            margin: 2rem 0;
-            padding: 2rem;
-            background: rgba(206, 143, 41, 0.1);
-            border-left: 4px solid var(--ochre-color);
-        }
-
-        /* Footer Styles */
-        footer {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 3rem 0 1rem;
-            margin-top: 4rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h3 {
-            color: white;
-            margin-bottom: 1rem;
-        }
-
-        .footer-section a {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            display: block;
-            margin-bottom: 0.5rem;
-            transition: color 0.3s ease;
-        }
-
-        .footer-section a:hover {
-            color: white;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-weight: 500;
         }
 
         /* Responsive Design */
@@ -348,209 +373,184 @@
             }
 
             .mobile-menu-toggle {
-                display: block;
+                display: flex;
             }
 
-            .service-hero h1 {
+            .hero h1 {
                 font-size: 2.5rem;
             }
 
-            .service-hero .subtitle {
-                font-size: 1.2rem;
+            .hero-text {
+                padding: 2rem;
             }
 
-            h1 { font-size: 2.5rem; }
-            h2 { font-size: 2rem; }
-            h3 { font-size: 1.5rem; }
+            .services-content .container {
+                padding: 2rem;
+            }
+
+            h1, .h1 {
+                font-size: 2.5rem;
+            }
+
+            h2, .h2 {
+                font-size: 2rem;
+            }
+
+            h3, .h3 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+            }
+
+            .hero-text {
+                padding: 1.5rem;
+            }
+
+            .services-content .container {
+                padding: 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <nav class="container">
-            <div class="logo">
-                <img src="../../AB_1_Primary_sea.png" alt="Anna Brooke Healing Logo">
-                Anna Brooke Healing
-            </div>
+            <a href="../../index.html" class="logo">Anna Brooke Healing</a>
             <ul class="nav-links">
-                <li><a href="../../">Home</a></li>
-                <li><a href="../../#about">About</a></li>
-                <li><a href="../../#services">Services</a></li>
-                <li><a href="../../#contact">Contact</a></li>
-                <li><a href="https://jnqy5qsbjrj9cjslwrnp.app.clientclub.net/login" target="_blank">Login</a></li>
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../healing-and-growth/">Healing & Growth</a></li>
+                <li><a href="../meaningful-life-ceremonies/">Life Ceremonies</a></li>
+                <li><a href="../writing-and-creativity/">Writing & Creativity</a></li>
+                <li><a href="../../index.html#contact">Contact</a></li>
             </ul>
-            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
+            <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </nav>
-        <div class="mobile-nav" id="mobileNav">
-            <ul>
-                <li><a href="../../" onclick="closeMobileMenu()">Home</a></li>
-                <li><a href="../../#about" onclick="closeMobileMenu()">About</a></li>
-                <li><a href="../../#services" onclick="closeMobileMenu()">Services</a></li>
-                <li><a href="../../#contact" onclick="closeMobileMenu()">Contact</a></li>
-                <li><a href="https://jnqy5qsbjrj9cjslwrnp.app.clientclub.net/login" target="_blank" onclick="closeMobileMenu()">Login</a></li>
-            </ul>
-        </div>
     </header>
 
-    <!-- Service Hero Section -->
-    <section class="service-hero">
-        <div class="container">
-            <div class="breadcrumb">
-                <a href="../../">Home</a> / <a href="../../#services">Services</a> / Writing & Creativity Explorer
+    <div class="mobile-nav" id="mobileNav">
+        <ul>
+            <li><a href="../../index.html" onclick="closeMobileMenu()">Home</a></li>
+            <li><a href="../healing-and-growth/" onclick="closeMobileMenu()">Healing & Growth</a></li>
+            <li><a href="../meaningful-life-ceremonies/" onclick="closeMobileMenu()">Life Ceremonies</a></li>
+            <li><a href="../writing-and-creativity/" onclick="closeMobileMenu()">Writing & Creativity</a></li>
+            <li><a href="../../index.html#contact" onclick="closeMobileMenu()">Contact</a></li>
+        </ul>
+    </div>
+
+    <section class="hero">
+        <div class="hero-parallax-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Writing & Creativity Explorer</h1>
+                <p class="hero-description">Unlock your creative voice and discover the stories waiting to be told. Transform your relationship with writing and creative expression.</p>
+                <a href="../../index.html#contact" class="cta-button">Begin Your Creative Journey</a>
             </div>
-            <h1>Writing & Creativity Explorer</h1>
-            <p class="subtitle">Find Your Truth Through the Power of Words</p>
-            <p class="description">Unlock your creative potential and process life's transitions through the transformative practice of writing. Whether you're journaling through change, crafting your story, or exploring creative expression—this is your space to discover the wisdom that flows through your pen.</p>
         </div>
     </section>
 
-    <!-- Service Content -->
-    <section class="service-content">
-        <div class="container">
-            
-            <div class="writing-quote">
-                "Writing is the painting of the voice. Through words, we discover not just what we think, but who we are becoming."
+    <!-- Parallax Services Section Wrapper -->
+    <section class="parallax-services-wrapper">
+        <div class="parallax-services-bg"></div>
+        <div class="parallax-services-overlay"></div>
+        
+        <div class="services-content">
+            <div class="container">
+                <h2>Your Creative Voice Matters</h2>
+                <p>Whether you're a seasoned writer facing blocks, someone who's always wanted to write but doesn't know where to start, or a creative soul seeking to deepen your practice, this work is about discovering and trusting your unique creative voice.</p>
+                
+                <h3>What We Explore Together</h3>
+                <p><strong>Creative Blocks & Resistance:</strong> Understanding what stops your creative flow and developing practices to move through resistance with compassion and curiosity.</p>
+                
+                <p><strong>Finding Your Voice:</strong> Discovering your authentic creative expression beyond comparison, perfectionism, and external expectations.</p>
+                
+                <p><strong>Writing as Spiritual Practice:</strong> Using writing as a tool for self-discovery, healing, and connection to your deeper wisdom.</p>
+                
+                <p><strong>Creative Confidence:</strong> Building trust in your creative instincts and developing a sustainable, nourishing creative practice.</p>
+                
+                <h3>The Approach</h3>
+                <p>This isn't traditional writing instruction focused on technique or craft (though we might touch on those). Instead, we work with the inner landscape of creativity—the fears, desires, and authentic expression that wants to emerge through you.</p>
+                
+                <p>We might work with free-writing, creative prompts, exploring family stories around creativity, or addressing the inner critic. The focus is always on what serves your unique creative journey and helps you access your most authentic voice.</p>
+                
+                <h3>Session Formats</h3>
+                <p><strong>Individual Creative Mentoring:</strong> One-on-one sessions focusing on your specific creative challenges and goals</p>
+                <p><strong>Writing Circles:</strong> Small group experiences combining writing practice with supportive community</p>
+                <p><strong>Creative Retreats:</strong> Immersive experiences combining writing, ceremony, and connection with nature</p>
+                <p><strong>Creative Life Coaching:</strong> Supporting you in creating a life that honors and nurtures your creativity</p>
+                
+                <h3>Investment</h3>
+                <p><strong>Individual Sessions:</strong> $150 per 75-minute session</p>
+                <p><strong>Writing Circle (4 sessions):</strong> $300 per person</p>
+                <p><strong>Creative Retreat (full day):</strong> $350 per person</p>
+                <p><strong>Creative Mentoring Package (6 sessions):</strong> $800</p>
+                
+                <a href="../../index.html#contact" class="cta-button">Explore Your Creativity</a>
             </div>
-            
-            <!-- What We Offer -->
-            <div class="service-section">
-                <h2>Your Creative Writing Journey</h2>
-                <div class="service-grid">
-                    <div class="service-item">
-                        <div class="icon">✍️</div>
-                        <h3>Guided Writing Sessions</h3>
-                        <p>Explore prompts and exercises designed to unlock your creativity and help you process life's transitions through the written word.</p>
-                    </div>
-                    <div class="service-item">
-                        <div class="icon">📖</div>
-                        <h3>Story Crafting</h3>
-                        <p>Learn to tell your story with authenticity and power, whether for personal healing or creative expression.</p>
-                    </div>
-                    <div class="service-item">
-                        <div class="icon">🌟</div>
-                        <h3>Creative Exploration</h3>
-                        <p>Discover new forms of creative expression through poetry, journaling, memoir writing, and other creative writing practices.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Who This Is For -->
-            <div class="service-section">
-                <h2>This Journey Is For You If...</h2>
-                <div class="service-grid">
-                    <div class="service-item">
-                        <h3>You Love to Write</h3>
-                        <p>You feel called to express yourself through writing but want guidance to deepen your practice and unlock new creative potential.</p>
-                    </div>
-                    <div class="service-item">
-                        <h3>You're Processing Change</h3>
-                        <p>You're navigating a life transition and want to use writing as a tool for reflection, understanding, and integration.</p>
-                    </div>
-                    <div class="service-item">
-                        <h3>You Seek Your Voice</h3>
-                        <p>You want to discover your authentic voice and learn to trust the wisdom that emerges when you put pen to paper.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- The Process -->
-            <div class="service-section">
-                <h2>Your Creative Process</h2>
-                <div class="service-grid">
-                    <div class="service-item">
-                        <h3>1. Discovery Call</h3>
-                        <p>We start with a free 15-minute conversation to understand your writing goals and creative aspirations.</p>
-                    </div>
-                    <div class="service-item">
-                        <h3>2. Creative Assessment</h3>
-                        <p>We explore your current writing practice and identify areas where you'd like to grow and expand your creative expression.</p>
-                    </div>
-                    <div class="service-item">
-                        <h3>3. Guided Exploration</h3>
-                        <p>Through regular sessions, you'll receive personalized prompts, exercises, and feedback to support your creative journey.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Writing Benefits -->
-            <div class="service-section">
-                <h2>The Transformative Power of Writing</h2>
-                <div class="service-grid">
-                    <div class="service-item">
-                        <h3>Clarity & Insight</h3>
-                        <p>Writing helps you process emotions, gain clarity on complex situations, and discover insights you didn't know you had.</p>
-                    </div>
-                    <div class="service-item">
-                        <h3>Healing & Release</h3>
-                        <p>Express and release what's been held inside, creating space for healing and new possibilities to emerge.</p>
-                    </div>
-                    <div class="service-item">
-                        <h3>Creative Confidence</h3>
-                        <p>Build confidence in your creative abilities and learn to trust your unique voice and perspective.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- CTA Section -->
-            <div class="cta-section">
-                <div class="container">
-                    <h2>Ready to Explore Your Creative Voice?</h2>
-                    <p>Your story matters. Your voice is unique. Let's discover the wisdom and creativity that flows through your writing.</p>
-                    <a href="../../#contact" class="cta-button">Begin Your Writing Journey</a>
-                </div>
-            </div>
-
         </div>
     </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Anna Brooke Healing</h3>
-                    <p>Navigate life's transitions with truth, compassion, and authentic guidance.</p>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <a href="../../">Home</a>
-                    <a href="../../#about">About</a>
-                    <a href="../../#services">Services</a>
-                    <a href="../../#contact">Contact</a>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Services</h3>
-                    <a href="../healing-and-growth/">Healing & Growth</a>
-                    <a href="../writing-and-creativity/">Writing & Creativity</a>
-                    <a href="../meaningful-life-ceremonies/">Life Ceremonies</a>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Get Started</h3>
-                    <a href="../../#contact">Book a Free Connection Call</a>
-                    <a href="#">Take the Find Your Path Quiz</a>
-                    <a href="#">Join 21 Days of Self-Care</a>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2025 Anna Brooke Healing. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
 
     <script>
-        // Mobile menu functionality
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Parallax Effect
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            
+            // Hero parallax
+            const parallaxBg = document.querySelector('.hero-parallax-bg');
+            if (parallaxBg) {
+                const speed = scrolled * 0.5;
+                parallaxBg.style.transform = `translateY(${speed}px)`;
+            }
+            
+            // Services parallax
+            const servicesParallaxBg = document.querySelector('.parallax-services-bg');
+            if (servicesParallaxBg) {
+                const servicesSection = document.querySelector('.parallax-services-wrapper');
+                const rect = servicesSection.getBoundingClientRect();
+                const isInView = rect.top < window.innerHeight && rect.bottom > 0;
+                
+                if (isInView) {
+                    const speed = (scrolled - servicesSection.offsetTop) * 0.3;
+                    servicesParallaxBg.style.transform = `translateY(${speed}px)`;
+                }
+            }
+        });
+
+        // Mobile Navigation JavaScript
         function toggleMobileMenu() {
             const mobileNav = document.getElementById('mobileNav');
-            mobileNav.style.display = mobileNav.style.display === 'block' ? 'none' : 'block';
+            mobileNav.classList.toggle('active');
         }
 
         function closeMobileMenu() {
-            document.getElementById('mobileNav').style.display = 'none';
+            const mobileNav = document.getElementById('mobileNav');
+            mobileNav.classList.remove('active');
         }
 
         // Close mobile menu when clicking outside
@@ -559,7 +559,7 @@
             const toggleButton = document.querySelector('.mobile-menu-toggle');
             
             if (!mobileNav.contains(event.target) && !toggleButton.contains(event.target)) {
-                mobileNav.style.display = 'none';
+                mobileNav.classList.remove('active');
             }
         });
     </script>

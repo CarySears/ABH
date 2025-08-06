@@ -55,6 +55,18 @@
                 box-sizing: border-box;
             }
 
+            /* Animation Keyframes */
+            @keyframes fadeInFromLeft {
+                0% {
+                    opacity: 0;
+                    transform: translateX(-50px);
+                }
+                100% {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+
         body {
             font-family: 'Brandon Grotesque', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -98,42 +110,39 @@
         }
 
         p {
-            font-family: 'Brandon Grotesque', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            font-weight: 500;
-            font-size: 1.1rem;
-            line-height: 1.7;
+            font-family: 'Brandon Grotesque', 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 1rem;
+            line-height: 1.6;
             margin-bottom: 1rem;
             color: var(--text-color);
+            font-weight: 400;
         }
 
         /* Header Styles */
         header {
-            background-color: var(--background-color);
-            padding: 1rem 0;
-            box-shadow: 0 2px 10px rgba(22, 74, 80, 0.1);
-            position: sticky;
+            background: rgba(242, 237, 226, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
             top: 0;
+            left: 0;
+            right: 0;
             z-index: 1000;
+            box-shadow: 0 2px 20px rgba(22, 74, 80, 0.1);
         }
 
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 1rem 0;
         }
 
         .logo {
-            display: flex;
-            align-items: center;
-            font-family: 'ITC Clearface', serif;
-            font-size: 1.5rem;
+            font-family: 'Ostia Antica', 'Playfair Display', 'Times New Roman', Georgia, serif;
+            font-size: 1.8rem;
             font-weight: normal;
             color: var(--primary-color);
-        }
-
-        .logo img {
-            height: 40px;
-            margin-right: 10px;
+            text-decoration: none;
         }
 
         .nav-links {
@@ -143,153 +152,171 @@
         }
 
         .nav-links a {
-            text-decoration: none;
             color: var(--text-color);
+            text-decoration: none;
             font-weight: 500;
             transition: color 0.3s ease;
+            position: relative;
         }
 
-        .nav-links a:hover {
-            color: var(--coral-color);
-        }
-
-        .mobile-menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--text-color);
-            cursor: pointer;
-        }
-
-        .mobile-nav {
-            display: none;
+        .nav-links a::after {
+            content: '';
             position: absolute;
-            top: 100%;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background-color: var(--accent-color);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-links a:hover::after {
+            width: 80%;
+        }
+
+        /* Hero Section with Parallax Background */
+        .hero {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-parallax-bg {
+            position: absolute;
+            top: -20%;
+            left: -20%;
+            width: 140%;
+            height: 140%;
+            background-image: url('https://images.unsplash.com/photo-1518715159541-e12050b5dd1e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wyNzQ4Mjd8MHwxfHNlYXJjaHwyNXx8bWFyYmxlfGVufDB8fHx8MTc1MjAwNDQwMHww&ixlib=rb-4.1.0&q=80&w=1080');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            will-change: transform;
+            z-index: 1;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
             left: 0;
-            width: 100%;
-            background-color: var(--background-color);
-            box-shadow: 0 2px 10px rgba(22, 74, 80, 0.1);
+            right: 0;
+            bottom: 0;
+            background: rgba(22, 74, 80, 0.6);
+            z-index: 2;
         }
 
-        .mobile-nav ul {
-            list-style: none;
-            padding: 1rem 0;
-        }
-
-        .mobile-nav a {
-            display: block;
-            padding: 0.75rem 2rem;
-            text-decoration: none;
-            color: var(--text-color);
-            border-bottom: 1px solid rgba(22, 74, 80, 0.1);
-        }
-
-        /* Service Hero Section */
-        .service-hero {
-            padding: 4rem 0;
-            background: linear-gradient(135deg, var(--rust-color) 0%, var(--coral-color) 50%, var(--shell-color) 100%);
+        .hero-content {
+            position: relative;
+            z-index: 3;
             text-align: center;
-        }
-
-        .service-hero h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            color: white;
-        }
-
-        .service-hero .subtitle {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: white;
-            margin-bottom: 1rem;
-        }
-
-        .service-hero .description {
-            font-size: 1.2rem;
             max-width: 800px;
-            margin: 0 auto 2rem;
-            color: white;
+            margin: 6rem auto 0;
+            padding: 0 20px;
         }
 
-        .breadcrumb {
+        .hero-text {
+            color: var(--text-color);
+            background: rgba(242, 237, 226, 0.95);
+            padding: 3rem;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero h1 {
+            font-family: 'Ostia Antica', 'Playfair Display', 'Times New Roman', Georgia, serif;
+            font-size: 3.5rem;
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            font-weight: normal;
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: fadeInFromLeft 1.2s ease-out 0.5s forwards;
+        }
+
+        .hero-description {
+            font-family: 'Brandon Grotesque', 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 1.2rem;
+            color: var(--text-color);
             margin-bottom: 2rem;
+            line-height: 1.6;
+            font-weight: 400;
         }
 
-        .breadcrumb a {
-            color: white;
-            text-decoration: none;
-            opacity: 0.8;
+        /* Parallax Services Section */
+        .parallax-services-wrapper {
+            position: relative;
+            min-height: 100vh;
+            overflow: hidden;
         }
 
-        .breadcrumb a:hover {
-            opacity: 1;
+        .parallax-services-bg {
+            position: absolute;
+            top: -20%;
+            left: -20%;
+            width: 140%;
+            height: 140%;
+            background-image: url('https://assets.cdn.filesafe.space/jNqy5QsBJRJ9cjslwRNp/media/44a94ead-8ce0-4d17-aeeb-4adfa1963160.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            will-change: transform;
+            z-index: 1;
         }
 
-        /* Service Content */
-        .service-content {
-            padding: 4rem 0;
+        .parallax-services-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(242, 237, 226, 0.3);
+            z-index: 2;
         }
 
-        .service-section {
-            margin-bottom: 4rem;
+        .services-content {
+            position: relative;
+            z-index: 3;
+            padding: 8rem 0;
         }
 
-        .service-section h2 {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .service-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .service-item {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(22, 74, 80, 0.1);
-            text-align: center;
-        }
-
-        .service-item h3 {
-            color: var(--rust-color);
-            margin-bottom: 1rem;
-        }
-
-        .service-item .icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: var(--coral-color);
-        }
-
-        .cta-section {
-            background: var(--shell-color);
-            padding: 4rem 0;
-            text-align: center;
-            border-radius: 20px;
-            margin: 4rem 0;
+        .services-content .container {
+            background: rgba(242, 237, 226, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 4rem;
+            border-radius: 12px;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
         }
 
         .cta-button {
+            font-family: 'Brandon Grotesque', 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             display: inline-block;
-            background: var(--rust-color);
-            color: white;
-            padding: 1rem 2rem;
+            background: var(--background-color);
+            color: var(--text-color);
+            padding: 20px 40px;
             text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
+            border-radius: 35px;
+            font-weight: 700;
             font-size: 1.1rem;
             transition: all 0.3s ease;
-            margin-top: 1rem;
+            box-shadow: 0 8px 25px rgba(22, 74, 80, 0.3);
+            text-shadow: none;
+            border: 2px solid var(--text-color);
+            margin-top: 2rem;
         }
 
         .cta-button:hover {
-            background: var(--coral-color);
-            transform: translateY(-2px);
+            background: var(--text-color);
+            color: var(--background-color);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(22, 74, 80, 0.4);
         }
 
         /* Ceremony-specific styles */
@@ -360,6 +387,53 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
+        /* Mobile Navigation */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-color);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 80px;
+            left: 0;
+            right: 0;
+            background: rgba(242, 237, 226, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 999;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .mobile-nav.active {
+            display: block;
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .mobile-nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .nav-links {
@@ -367,222 +441,183 @@
             }
 
             .mobile-menu-toggle {
-                display: block;
+                display: flex;
             }
 
-            .service-hero h1 {
+            .hero h1 {
                 font-size: 2.5rem;
             }
 
-            .service-hero .subtitle {
-                font-size: 1.2rem;
+            .hero-text {
+                padding: 2rem;
             }
 
-            h1 { font-size: 2.5rem; }
-            h2 { font-size: 2rem; }
-            h3 { font-size: 1.5rem; }
+            .services-content .container {
+                padding: 2rem;
+            }
+
+            h1, .h1 {
+                font-size: 2.5rem;
+            }
+
+            h2, .h2 {
+                font-size: 2rem;
+            }
+
+            h3, .h3 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+            }
+
+            .hero-text {
+                padding: 1.5rem;
+            }
+
+            .services-content .container {
+                padding: 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <nav class="container">
-            <div class="logo">
-                <img src="../../AB_1_Primary_sea.png" alt="Anna Brooke Healing Logo">
-                Anna Brooke Healing
-            </div>
+            <a href="../../index.html" class="logo">Anna Brooke Healing</a>
             <ul class="nav-links">
-                <li><a href="../../">Home</a></li>
-                <li><a href="../../#about">About</a></li>
-                <li><a href="../../#services">Services</a></li>
-                <li><a href="../../#contact">Contact</a></li>
-                <li><a href="https://jnqy5qsbjrj9cjslwrnp.app.clientclub.net/login" target="_blank">Login</a></li>
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../healing-and-growth/">Healing & Growth</a></li>
+                <li><a href="../meaningful-life-ceremonies/">Life Ceremonies</a></li>
+                <li><a href="../writing-and-creativity/">Writing & Creativity</a></li>
+                <li><a href="../../index.html#contact">Contact</a></li>
             </ul>
-            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
+            <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </nav>
-        <div class="mobile-nav" id="mobileNav">
-            <ul>
-                <li><a href="../../" onclick="closeMobileMenu()">Home</a></li>
-                <li><a href="../../#about" onclick="closeMobileMenu()">About</a></li>
-                <li><a href="../../#services" onclick="closeMobileMenu()">Services</a></li>
-                <li><a href="../../#contact" onclick="closeMobileMenu()">Contact</a></li>
-                <li><a href="https://jnqy5qsbjrj9cjslwrnp.app.clientclub.net/login" target="_blank" onclick="closeMobileMenu()">Login</a></li>
-            </ul>
-        </div>
     </header>
 
-    <!-- Service Hero Section -->
-    <section class="service-hero">
-        <div class="container">
-            <div class="breadcrumb">
-                <a href="../../">Home</a> / <a href="../../#services">Services</a> / Meaningful Life Ceremonies
+    <div class="mobile-nav" id="mobileNav">
+        <ul>
+            <li><a href="../../index.html" onclick="closeMobileMenu()">Home</a></li>
+            <li><a href="../healing-and-growth/" onclick="closeMobileMenu()">Healing & Growth</a></li>
+            <li><a href="../meaningful-life-ceremonies/" onclick="closeMobileMenu()">Life Ceremonies</a></li>
+            <li><a href="../writing-and-creativity/" onclick="closeMobileMenu()">Writing & Creativity</a></li>
+            <li><a href="../../index.html#contact" onclick="closeMobileMenu()">Contact</a></li>
+        </ul>
+    </div>
+
+    <section class="hero">
+        <div class="hero-parallax-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Meaningful Life Ceremonies</h1>
+                <p class="hero-description">Honor life's sacred transitions with ceremonies that celebrate, heal, and transform. Create meaningful rituals for your most significant moments.</p>
+                <a href="../../index.html#contact" class="cta-button">Create Your Ceremony</a>
             </div>
-            <h1>Meaningful Life Ceremonies</h1>
-            <p class="subtitle">Celebrate Life's Sacred Moments with Authentic Rituals</p>
-            <p class="description">For couples or individuals in major life transitions, seeking personalized ceremonies that honor your unique journey. Celebrate the moments that matter with ceremonies rooted in your truth and crafted with heart.</p>
         </div>
     </section>
 
-    <!-- Service Content -->
-    <section class="service-content">
-        <div class="container">
-            
-            <div class="ceremony-highlight">
-                <h3>Every Moment Deserves to Be Honored</h3>
-                <p>Life's most meaningful transitions deserve ceremonies as unique as you are. Whether celebrating love, marking new beginnings, or honoring life's passages, each ritual becomes a sacred container for your truth and intention.</p>
+    <!-- Parallax Services Section Wrapper -->
+    <section class="parallax-services-wrapper">
+        <div class="parallax-services-bg"></div>
+        <div class="parallax-services-overlay"></div>
+        
+        <div class="services-content">
+            <div class="container">
+                <h2>Sacred Moments Deserve Sacred Attention</h2>
+                <p>Life presents us with thresholds—moments that call for something more than ordinary acknowledgment. Whether celebrating new beginnings, honoring endings, or marking significant passages, meaningful ceremonies create containers for transformation and healing.</p>
+                
+                <h3>Ceremony Types</h3>
+                <p><strong>Life Transition Ceremonies:</strong> Coming of age, career changes, retirement, moving, new relationships, or any significant life shift that deserves intentional recognition.</p>
+                
+                <p><strong>Healing & Release Ceremonies:</strong> Divorce ceremonies, grief rituals, forgiveness ceremonies, or rituals to release what no longer serves your growth.</p>
+                
+                <p><strong>Celebration & Commitment Ceremonies:</strong> Weddings, commitment ceremonies, baby blessings, house blessings, or celebrations of personal achievements and milestones.</p>
+                
+                <p><strong>Seasonal & Cyclical Ceremonies:</strong> Connecting with natural rhythms through solstice ceremonies, moon rituals, or personal anniversary celebrations.</p>
+                
+                <h3>The Ceremony Creation Process</h3>
+                <p>Every ceremony is co-created with you to reflect your values, beliefs, and the specific meaning of your transition. We begin with deep listening to understand what wants to be honored, then craft a ceremony that feels authentic and powerful for you.</p>
+                
+                <p>Ceremonies can be intimate gatherings for one or two people, or larger community celebrations. They can incorporate elements from various traditions or be entirely secular, depending on what resonates with your heart and circumstances.</p>
+                
+                <h3>What's Included</h3>
+                <p><strong>Consultation & Design:</strong> Deep conversation about your needs, values, and vision for the ceremony</p>
+                <p><strong>Custom Ceremony Creation:</strong> Personalized ritual design with meaningful elements, words, and actions</p>
+                <p><strong>Ceremony Facilitation:</strong> Guiding the ceremony with presence, warmth, and skilled facilitation</p>
+                <p><strong>Keepsake Materials:</strong> Written ceremony script and any special materials created for your ritual</p>
+                
+                <h3>Investment</h3>
+                <p><strong>Intimate Ceremonies (1-6 people):</strong> $300-500 depending on complexity and location</p>
+                <p><strong>Community Ceremonies (7+ people):</strong> $500-800 depending on size and requirements</p>
+                <p><strong>Consultation Only:</strong> $150 for ceremony design you can facilitate yourself</p>
+                
+                <a href="../../index.html#contact" class="cta-button">Discuss Your Ceremony</a>
             </div>
-            
-            <!-- Types of Ceremonies -->
-            <div class="service-section">
-                <h2>Sacred Ceremonies We Create Together</h2>
-                <div class="ceremony-types">
-                    <div class="ceremony-type">
-                        <h3>Wedding Ceremonies</h3>
-                        <p>Personalized wedding ceremonies that reflect your unique love story and values, creating a sacred foundation for your union.</p>
-                    </div>
-                    <div class="ceremony-type">
-                        <h3>Commitment Rituals</h3>
-                        <p>Honor your partnership with meaningful commitment ceremonies, whether you're renewing vows or celebrating milestones.</p>
-                    </div>
-                    <div class="ceremony-type">
-                        <h3>Life Transition Ceremonies</h3>
-                        <p>Mark significant life passages like career changes, new chapters, or personal transformations with intentional ritual.</p>
-                    </div>
-                    <div class="ceremony-type">
-                        <h3>Healing Ceremonies</h3>
-                        <p>Create sacred space for healing and release through ceremonies designed to support your emotional and spiritual journey.</p>
-                    </div>
-                    <div class="ceremony-type">
-                        <h3>Celebration of Life</h3>
-                        <p>Honor loved ones who have passed with meaningful memorial ceremonies that celebrate their life and legacy.</p>
-                    </div>
-                    <div class="ceremony-type">
-                        <h3>Custom Rituals</h3>
-                        <p>Design completely personalized ceremonies for any significant moment that deserves to be honored and remembered.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- What Makes Our Ceremonies Special -->
-            <div class="service-section">
-                <h2>What Makes These Ceremonies Sacred</h2>
-                <div class="service-grid">
-                    <div class="service-item">
-                        <div class="icon">💫</div>
-                        <h3>Deeply Personal</h3>
-                        <p>Every ceremony is crafted specifically for you, reflecting your values, beliefs, and the unique story you're celebrating.</p>
-                    </div>
-                    <div class="service-item">
-                        <div class="icon">🌿</div>
-                        <h3>Spiritually Inclusive</h3>
-                        <p>We honor all spiritual paths and beliefs, creating ceremonies that feel authentic to your personal faith and values.</p>
-                    </div>
-                    <div class="service-item">
-                        <div class="icon">✨</div>
-                        <h3>Meaningful Rituals</h3>
-                        <p>Each element is chosen with intention, creating powerful moments of connection, transformation, and celebration.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- The Process -->
-            <div class="service-section">
-                <h2>Creating Your Sacred Ceremony</h2>
-                <div class="service-grid">
-                    <div class="service-item">
-                        <h3>1. Vision Session</h3>
-                        <p>We begin with a deep conversation about your vision, values, and what you want this ceremony to represent in your life.</p>
-                    </div>
-                    <div class="service-item">
-                        <h3>2. Custom Design</h3>
-                        <p>Together, we craft every element of your ceremony, from the opening words to the closing blessing, ensuring it feels authentically you.</p>
-                    </div>
-                    <div class="service-item">
-                        <h3>3. Sacred Celebration</h3>
-                        <p>On the day of your ceremony, I guide you through each moment with presence, care, and the deep honor your occasion deserves.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Why Choose Ceremonial Support -->
-            <div class="service-section">
-                <h2>The Power of Intentional Ceremony</h2>
-                <div class="service-grid">
-                    <div class="service-item">
-                        <h3>Sacred Transitions</h3>
-                        <p>Ceremonies help us move consciously from one chapter of life to another, creating clear intention and meaning.</p>
-                    </div>
-                    <div class="service-item">
-                        <h3>Community Witness</h3>
-                        <p>Having your loved ones witness your ceremony creates a powerful container of support and shared celebration.</p>
-                    </div>
-                    <div class="service-item">
-                        <h3>Lasting Memory</h3>
-                        <p>A thoughtfully crafted ceremony becomes a treasured memory that continues to inspire and ground you for years to come.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- CTA Section -->
-            <div class="cta-section">
-                <div class="container">
-                    <h2>Ready to Create Your Sacred Ceremony?</h2>
-                    <p>Your special moments deserve to be honored with intention, beauty, and authentic meaning. Let's design a ceremony that celebrates your unique journey.</p>
-                    <a href="../../#contact" class="cta-button">Begin Planning Your Ceremony</a>
-                </div>
-            </div>
-
         </div>
     </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Anna Brooke Healing</h3>
-                    <p>Navigate life's transitions with truth, compassion, and authentic guidance.</p>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <a href="../../">Home</a>
-                    <a href="../../#about">About</a>
-                    <a href="../../#services">Services</a>
-                    <a href="../../#contact">Contact</a>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Services</h3>
-                    <a href="../healing-and-growth/">Healing & Growth</a>
-                    <a href="../writing-and-creativity/">Writing & Creativity</a>
-                    <a href="../meaningful-life-ceremonies/">Life Ceremonies</a>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Get Started</h3>
-                    <a href="../../#contact">Book a Free Connection Call</a>
-                    <a href="#">Take the Find Your Path Quiz</a>
-                    <a href="#">Join 21 Days of Self-Care</a>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2025 Anna Brooke Healing. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
 
     <script>
-        // Mobile menu functionality
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Parallax Effect
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            
+            // Hero parallax
+            const parallaxBg = document.querySelector('.hero-parallax-bg');
+            if (parallaxBg) {
+                const speed = scrolled * 0.5;
+                parallaxBg.style.transform = `translateY(${speed}px)`;
+            }
+            
+            // Services parallax
+            const servicesParallaxBg = document.querySelector('.parallax-services-bg');
+            if (servicesParallaxBg) {
+                const servicesSection = document.querySelector('.parallax-services-wrapper');
+                const rect = servicesSection.getBoundingClientRect();
+                const isInView = rect.top < window.innerHeight && rect.bottom > 0;
+                
+                if (isInView) {
+                    const speed = (scrolled - servicesSection.offsetTop) * 0.3;
+                    servicesParallaxBg.style.transform = `translateY(${speed}px)`;
+                }
+            }
+        });
+
+        // Mobile Navigation JavaScript
         function toggleMobileMenu() {
             const mobileNav = document.getElementById('mobileNav');
-            mobileNav.style.display = mobileNav.style.display === 'block' ? 'none' : 'block';
+            mobileNav.classList.toggle('active');
         }
 
         function closeMobileMenu() {
-            document.getElementById('mobileNav').style.display = 'none';
+            const mobileNav = document.getElementById('mobileNav');
+            mobileNav.classList.remove('active');
         }
 
         // Close mobile menu when clicking outside
@@ -591,7 +626,7 @@
             const toggleButton = document.querySelector('.mobile-menu-toggle');
             
             if (!mobileNav.contains(event.target) && !toggleButton.contains(event.target)) {
-                mobileNav.style.display = 'none';
+                mobileNav.classList.remove('active');
             }
         });
     </script>

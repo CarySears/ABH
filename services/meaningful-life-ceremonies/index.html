@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meaningful Life Ceremonies - Anna Brooke Healing</title>
+    
+    <!-- Google Fonts -->
+            <!-- Anna's Authentic Brand Fonts with Optimized Loading -->
+        <style>
+            @font-face {
+                font-family: 'Ostia Antica';
+                src: url('../../Ostia_Antica_WEB-Regular.woff2') format('woff2');
+                font-weight: normal;
+                font-style: normal;
+                font-display: swap; /* Fallback text shown immediately, then swapped */
+            }
+            
+            @font-face {
+                font-family: 'ITC Clearface';
+                src: url('../../ITCClearFaceReg.woff2') format('woff2');
+                font-weight: normal;
+                font-style: normal;
+                font-display: swap;
+            }
+            
+            @font-face {
+                font-family: 'Brandon Grotesque';
+                src: url('../../BrandonGrotesque-Medium.woff2') format('woff2');
+                font-weight: 500;
+                font-style: normal;
+                font-display: swap;
+            }
+        </style>
+    
+            <style>
+            :root {
+                /* Anna's Brand Colors - Clean Sand & Sea */
+                --primary-color: #164a50; /* sea - for all text */
+                --accent-color: #164a50; /* sea - for all text */
+                --text-color: #164a50; /* sea - for all text */
+                --background-color: #f2ede2; /* sand - for all backgrounds */
+                --shell-color: #f3d9d0; /* shell */
+                --sand-color: #f2ede2; /* sand */
+                --ochre-color: #ce8f29;
+                --sea-color: #164a50;
+                --sky-color: #a3b6e5;
+                --rust-color: #9b4d32;
+                --coral-color: #e27756;
+            }
+            
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+        body {
+            font-family: 'Brandon Grotesque', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            font-weight: 500;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Typography Hierarchy - Anna's Authentic Fonts with Fallbacks */
+        h1, .h1 {
+            font-family: 'Ostia Antica', 'Playfair Display', 'Times New Roman', Georgia, serif;
+            font-weight: normal;
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        h2, .h2 {
+            font-family: 'ITC Clearface', 'Crimson Text', 'Times New Roman', Georgia, serif;
+            font-weight: normal;
+            font-size: 2.5rem;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        h3, .h3 {
+            font-family: 'ITC Clearface', 'Crimson Text', 'Times New Roman', Georgia, serif;
+            font-weight: normal;
+            font-size: 1.8rem;
+            line-height: 1.4;
+            margin-bottom: 0.75rem;
+            color: var(--primary-color);
+        }
+
+        p {
+            font-family: 'Brandon Grotesque', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-weight: 500;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--background-color);
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(22, 74, 80, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-family: 'ITC Clearface', serif;
+            font-size: 1.5rem;
+            font-weight: normal;
+            color: var(--primary-color);
+        }
+
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--coral-color);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-color);
+            cursor: pointer;
+        }
+
+        .mobile-nav {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: var(--background-color);
+            box-shadow: 0 2px 10px rgba(22, 74, 80, 0.1);
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+            padding: 1rem 0;
+        }
+
+        .mobile-nav a {
+            display: block;
+            padding: 0.75rem 2rem;
+            text-decoration: none;
+            color: var(--text-color);
+            border-bottom: 1px solid rgba(22, 74, 80, 0.1);
+        }
+
+        /* Service Hero Section */
+        .service-hero {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, var(--rust-color) 0%, var(--coral-color) 50%, var(--shell-color) 100%);
+            text-align: center;
+        }
+
+        .service-hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .service-hero .subtitle {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .service-hero .description {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            color: white;
+        }
+
+        .breadcrumb {
+            margin-bottom: 2rem;
+        }
+
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+        }
+
+        .breadcrumb a:hover {
+            opacity: 1;
+        }
+
+        /* Service Content */
+        .service-content {
+            padding: 4rem 0;
+        }
+
+        .service-section {
+            margin-bottom: 4rem;
+        }
+
+        .service-section h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .service-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(22, 74, 80, 0.1);
+            text-align: center;
+        }
+
+        .service-item h3 {
+            color: var(--rust-color);
+            margin-bottom: 1rem;
+        }
+
+        .service-item .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--coral-color);
+        }
+
+        .cta-section {
+            background: var(--shell-color);
+            padding: 4rem 0;
+            text-align: center;
+            border-radius: 20px;
+            margin: 4rem 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--rust-color);
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .cta-button:hover {
+            background: var(--coral-color);
+            transform: translateY(-2px);
+        }
+
+        /* Ceremony-specific styles */
+        .ceremony-highlight {
+            background: linear-gradient(135deg, var(--shell-color) 0%, var(--sand-color) 100%);
+            padding: 3rem;
+            border-radius: 20px;
+            margin: 3rem 0;
+            text-align: center;
+            border-left: 4px solid var(--coral-color);
+        }
+
+        .ceremony-highlight h3 {
+            color: var(--rust-color);
+            margin-bottom: 1rem;
+        }
+
+        .ceremony-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .ceremony-type {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(22, 74, 80, 0.1);
+            border-top: 3px solid var(--coral-color);
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 3rem 0 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .service-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .service-hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            h3 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <img src="../../AB_1_Primary_sea.png" alt="Anna Brooke Healing Logo">
+                Anna Brooke Healing
+            </div>
+            <ul class="nav-links">
+                <li><a href="../../">Home</a></li>
+                <li><a href="../../#about">About</a></li>
+                <li><a href="../../#services">Services</a></li>
+                <li><a href="../../#contact">Contact</a></li>
+                <li><a href="https://jnqy5qsbjrj9cjslwrnp.app.clientclub.net/login" target="_blank">Login</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
+        </nav>
+        <div class="mobile-nav" id="mobileNav">
+            <ul>
+                <li><a href="../../" onclick="closeMobileMenu()">Home</a></li>
+                <li><a href="../../#about" onclick="closeMobileMenu()">About</a></li>
+                <li><a href="../../#services" onclick="closeMobileMenu()">Services</a></li>
+                <li><a href="../../#contact" onclick="closeMobileMenu()">Contact</a></li>
+                <li><a href="https://jnqy5qsbjrj9cjslwrnp.app.clientclub.net/login" target="_blank" onclick="closeMobileMenu()">Login</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Service Hero Section -->
+    <section class="service-hero">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="../../">Home</a> / <a href="../../#services">Services</a> / Meaningful Life Ceremonies
+            </div>
+            <h1>Meaningful Life Ceremonies</h1>
+            <p class="subtitle">Celebrate Life's Sacred Moments with Authentic Rituals</p>
+            <p class="description">For couples or individuals in major life transitions, seeking personalized ceremonies that honor your unique journey. Celebrate the moments that matter with ceremonies rooted in your truth and crafted with heart.</p>
+        </div>
+    </section>
+
+    <!-- Service Content -->
+    <section class="service-content">
+        <div class="container">
+            
+            <div class="ceremony-highlight">
+                <h3>Every Moment Deserves to Be Honored</h3>
+                <p>Life's most meaningful transitions deserve ceremonies as unique as you are. Whether celebrating love, marking new beginnings, or honoring life's passages, each ritual becomes a sacred container for your truth and intention.</p>
+            </div>
+            
+            <!-- Types of Ceremonies -->
+            <div class="service-section">
+                <h2>Sacred Ceremonies We Create Together</h2>
+                <div class="ceremony-types">
+                    <div class="ceremony-type">
+                        <h3>Wedding Ceremonies</h3>
+                        <p>Personalized wedding ceremonies that reflect your unique love story and values, creating a sacred foundation for your union.</p>
+                    </div>
+                    <div class="ceremony-type">
+                        <h3>Commitment Rituals</h3>
+                        <p>Honor your partnership with meaningful commitment ceremonies, whether you're renewing vows or celebrating milestones.</p>
+                    </div>
+                    <div class="ceremony-type">
+                        <h3>Life Transition Ceremonies</h3>
+                        <p>Mark significant life passages like career changes, new chapters, or personal transformations with intentional ritual.</p>
+                    </div>
+                    <div class="ceremony-type">
+                        <h3>Healing Ceremonies</h3>
+                        <p>Create sacred space for healing and release through ceremonies designed to support your emotional and spiritual journey.</p>
+                    </div>
+                    <div class="ceremony-type">
+                        <h3>Celebration of Life</h3>
+                        <p>Honor loved ones who have passed with meaningful memorial ceremonies that celebrate their life and legacy.</p>
+                    </div>
+                    <div class="ceremony-type">
+                        <h3>Custom Rituals</h3>
+                        <p>Design completely personalized ceremonies for any significant moment that deserves to be honored and remembered.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- What Makes Our Ceremonies Special -->
+            <div class="service-section">
+                <h2>What Makes These Ceremonies Sacred</h2>
+                <div class="service-grid">
+                    <div class="service-item">
+                        <div class="icon">💫</div>
+                        <h3>Deeply Personal</h3>
+                        <p>Every ceremony is crafted specifically for you, reflecting your values, beliefs, and the unique story you're celebrating.</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="icon">🌿</div>
+                        <h3>Spiritually Inclusive</h3>
+                        <p>We honor all spiritual paths and beliefs, creating ceremonies that feel authentic to your personal faith and values.</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="icon">✨</div>
+                        <h3>Meaningful Rituals</h3>
+                        <p>Each element is chosen with intention, creating powerful moments of connection, transformation, and celebration.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The Process -->
+            <div class="service-section">
+                <h2>Creating Your Sacred Ceremony</h2>
+                <div class="service-grid">
+                    <div class="service-item">
+                        <h3>1. Vision Session</h3>
+                        <p>We begin with a deep conversation about your vision, values, and what you want this ceremony to represent in your life.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>2. Custom Design</h3>
+                        <p>Together, we craft every element of your ceremony, from the opening words to the closing blessing, ensuring it feels authentically you.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>3. Sacred Celebration</h3>
+                        <p>On the day of your ceremony, I guide you through each moment with presence, care, and the deep honor your occasion deserves.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Why Choose Ceremonial Support -->
+            <div class="service-section">
+                <h2>The Power of Intentional Ceremony</h2>
+                <div class="service-grid">
+                    <div class="service-item">
+                        <h3>Sacred Transitions</h3>
+                        <p>Ceremonies help us move consciously from one chapter of life to another, creating clear intention and meaning.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Community Witness</h3>
+                        <p>Having your loved ones witness your ceremony creates a powerful container of support and shared celebration.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Lasting Memory</h3>
+                        <p>A thoughtfully crafted ceremony becomes a treasured memory that continues to inspire and ground you for years to come.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="cta-section">
+                <div class="container">
+                    <h2>Ready to Create Your Sacred Ceremony?</h2>
+                    <p>Your special moments deserve to be honored with intention, beauty, and authentic meaning. Let's design a ceremony that celebrates your unique journey.</p>
+                    <a href="../../#contact" class="cta-button">Begin Planning Your Ceremony</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Anna Brooke Healing</h3>
+                    <p>Navigate life's transitions with truth, compassion, and authentic guidance.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="../../">Home</a>
+                    <a href="../../#about">About</a>
+                    <a href="../../#services">Services</a>
+                    <a href="../../#contact">Contact</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <a href="../healing-and-growth/">Healing & Growth</a>
+                    <a href="../writing-and-creativity/">Writing & Creativity</a>
+                    <a href="../meaningful-life-ceremonies/">Life Ceremonies</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Get Started</h3>
+                    <a href="../../#contact">Book a Free Connection Call</a>
+                    <a href="#">Take the Find Your Path Quiz</a>
+                    <a href="#">Join 21 Days of Self-Care</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Anna Brooke Healing. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu functionality
+        function toggleMobileMenu() {
+            const mobileNav = document.getElementById('mobileNav');
+            mobileNav.style.display = mobileNav.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function closeMobileMenu() {
+            document.getElementById('mobileNav').style.display = 'none';
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const mobileNav = document.getElementById('mobileNav');
+            const toggleButton = document.querySelector('.mobile-menu-toggle');
+            
+            if (!mobileNav.contains(event.target) && !toggleButton.contains(event.target)) {
+                mobileNav.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

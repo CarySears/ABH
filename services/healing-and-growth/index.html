@@ -378,9 +378,9 @@
 
         /* Offering Cards */
         .offerings-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 3rem;
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
             margin: 4rem 0;
         }
 
@@ -390,6 +390,8 @@
             border-radius: 12px;
             box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
             text-align: left;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .offering-card h3 {

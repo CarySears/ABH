@@ -327,6 +327,129 @@
             margin: 0 auto;
         }
 
+        /* FAQ Section */
+        .faq {
+            padding: 80px 0;
+            background: #f2ede2;
+        }
+
+        .faq h2 {
+            font-family: 'ITC Clearface', 'Crimson Text', 'Times New Roman', Georgia, serif;
+            text-align: center;
+            font-size: 2.2rem;
+            color: #164a50;
+            margin-bottom: 3rem;
+            font-weight: 600;
+        }
+
+        .faq-item {
+            background: #f3d9d0;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            border: 1px solid rgba(22, 74, 80, 0.1);
+        }
+
+        .faq-question {
+            font-family: 'Brandon Grotesque', 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #f3d9d0;
+            color: #164a50;
+            padding: 1.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(22, 74, 80, 0.1);
+        }
+
+        .faq-question:hover {
+            background: rgba(22, 74, 80, 0.05);
+            color: #164a50;
+        }
+
+        .faq-answer {
+            font-family: 'Brandon Grotesque', 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            padding: 1.5rem;
+            display: none;
+            color: #164a50;
+            background: #f3d9d0;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--background-color);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-section h3 {
+            font-family: 'ITC Clearface', 'Crimson Text', 'Times New Roman', Georgia, serif;
+            margin-bottom: 1.5rem;
+            color: #164a50;
+            font-weight: 600;
+        }
+
+        .footer-section p, .footer-section a {
+            font-family: 'Brandon Grotesque', 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text-color);
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            display: block;
+            font-weight: 400;
+        }
+
+        .footer-section a:hover {
+            color: var(--text-color);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--background-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background: var(--background-color);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #9b4d32;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--text-color);
+        }
+
+        .footer-bottom p {
+            font-family: 'Brandon Grotesque', 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-weight: 400;
+        }
+
+        .footer-bottom a {
+            color: var(--text-color);
+        }
+
         .cta-button {
             font-family: 'Brandon Grotesque', 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             display: inline-block;
@@ -616,6 +739,104 @@
             </div>
         </div>
     </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            <p class="section-subheading">Answers to Your Questions</p>
+            
+            <div class="faq-item">
+                <div class="faq-question">What services does Anna Brooke Healing offer for people going through life transitions?</div>
+                <div class="faq-answer">Anna Brooke Healing offers three main paths: Healing & Growth through breathwork and counseling, Writing & Creativity exploration for processing transitions, and Meaningful Life Ceremonies for major life moments. Each path is designed to support you wherever you are in your journey.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How can breathwork—especially Rebirthing Breathwork—help with emotional healing or grief?</div>
+                <div class="faq-answer">Breathwork is a powerful tool for accessing and releasing stored emotions, trauma, and grief. Rebirthing Breathwork specifically helps you reconnect with your natural breathing patterns while creating a safe space for emotional processing and healing.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Who is Anna Brooke Healing for?</div>
+                <div class="faq-answer">Anna's work is for anyone navigating life's transitions—whether you're healing old wounds, seeking creative expression, going through major life changes, or simply wanting to reconnect with your inner truth and purpose.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How does healing through writing and creative expression work at Anna Brooke Healing?</div>
+                <div class="faq-answer">Writing and creative expression provide powerful pathways for self-discovery and healing. Through workshops, coaching, and soulful writing practices, you'll explore your inner truth while unlocking personal growth and creative potential.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Can I book a personalized ceremony or wedding officiant in Maine?</div>
+                <div class="faq-answer">Yes! Anna crafts bespoke ceremonies that honor the sacredness of your journey. Whether for weddings, life transitions, or other meaningful moments, each ceremony is personalized to reflect your unique truth and story.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How is Anna Brooke Healing different from traditional therapy or coaching?</div>
+                <div class="faq-answer">Anna's approach is integrative, combining breathwork, empowerment counseling, creative expression, and spiritual practices. It's designed to help you reconnect with your inner wisdom and create lasting transformation through compassionate, holistic healing.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p>anna@annabrookehealing.com</p>
+                    <p>(646) 943-4635</p>
+                    <p>21 Rideout Rd.</p>
+                    
+                    <div class="social-icons">
+                        <a href="#" class="social-icon">f</a>
+                        <a href="#" class="social-icon">i</a>
+                        <a href="#" class="social-icon">t</a>
+                        <a href="#" class="social-icon">@</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="../../index.html">Home</a>
+                    <a href="../healing-and-growth/">Healing & Growth</a>
+                    <a href="../meaningful-life-ceremonies/">Life Ceremonies</a>
+                    <a href="../writing-and-creativity/">Writing & Creativity</a>
+                    <a href="../../index.html#contact">Contact</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Get Started</h3>
+                    <a href="../../index.html#contact">Book a Free Connection Call</a>
+                    <a href="#">Take the Find Your Path Quiz</a>
+                    <a href="#">Join 21 Days of Self-Care</a>
+                    <a href="#">Share Your Testimonial</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Anna Brooke Healing. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Toggle Functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const isOpen = answer.style.display === 'block';
+                
+                // Close all other answers
+                document.querySelectorAll('.faq-answer').forEach(ans => {
+                    ans.style.display = 'none';
+                });
+                
+                // Toggle current answer
+                answer.style.display = isOpen ? 'none' : 'block';
+            });
+        });
+    </script>
 
     <script>
         // Smooth scrolling for navigation links

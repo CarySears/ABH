@@ -382,6 +382,8 @@
             display: block;
         }
         .image-placeholder.hero-image img { object-fit: cover; object-position: 50% 40%; }
+        @keyframes scrollArrowBounce { 0%, 100% { transform: translateY(0); opacity: 0.75; } 50% { transform: translateY(6px); opacity: 1; } }
+        .hero-scroll-hint .arrow { display: inline-block; animation: scrollArrowBounce 1.2s ease-in-out infinite; }
 
         /* Offering Cards */
         .offerings-grid {
@@ -880,7 +882,7 @@
                     Book a Free Connection Call With Anna
                     <span class="cta-subtitle">15-minutes</span>
                 </a>
-                <div class="hero-scroll-hint" style="margin-top: 0.75rem; font-style: italic; color: var(--text-color); opacity: 0.85;">Scroll to explore this path ↓</div>
+                <div class="hero-scroll-hint" style="margin-top: 0.75rem; font-style: italic; color: var(--text-color); opacity: 0.85;">Scroll to explore this path <span class="arrow">↓</span></div>
             </div>
         </div>
     </section>

@@ -1233,6 +1233,9 @@
                     Book a Free Connection call With Anna
                     <span class="cta-subtitle">15-minutes</span>
                 </a>
+                <div style="margin-top: 0.75rem;">
+                    <a href="#" style="text-decoration: underline; color: var(--sea-color);" aria-label="Subscribe to the Newsletter">Subscribe to the Newsletter</a>
+                </div>
             </div>
             <div class="hero-image-container">
                 <div class="anna-hero-image">
@@ -1359,8 +1362,8 @@
                     </div>
                     
                     <div class="alternative-cta" style="margin-top: 2rem; text-align: center;">
-                        <p style="margin-bottom: 1rem; font-style: italic; color: var(--text-color);">Not ready to book a call yet? You can begin with a free 21-day self-care journey—delivered straight to your inbox.</p>
-                        <a href="#" class="secondary-cta-button">💌 Join 21 Days of Self-Care »</a>
+                        <p style="margin-bottom: 1rem; font-style: italic; color: var(--text-color);">Prefer to stay connected? Get updates and gentle inspiration in your inbox.</p>
+                        <a href="#" class="secondary-cta-button" aria-label="Subscribe to the Newsletter">Subscribe to the Newsletter</a>
                     </div>
                 </div>
             </div>
@@ -1451,7 +1454,7 @@
                     <h3>Get Started</h3>
                     <a href="#">Book a Free Connection Call</a>
                     <a href="#">Take the Find Your Path Quiz</a>
-                    <a href="#">Join 21 Days of Self-Care</a>
+                    <a href="#" aria-label="Subscribe to the Newsletter">Subscribe to the Newsletter</a>
                     <a href="#">Share Your Testimonial</a>
                 </div>
             </div>
@@ -1817,8 +1820,10 @@
       } catch(e){ return false; }
     }
 
+    function anyModalOpen(){ return document.querySelector('.booking-modal.is-open, .quiz-modal.is-open'); }
     function openNewsletter(){
       if (modal.classList.contains('is-open')) return;
+      if (anyModalOpen()) return;
       modal.classList.add('is-open');
       modal.setAttribute('aria-hidden','false');
       document.documentElement.style.overflow = 'hidden';

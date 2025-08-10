@@ -1464,7 +1464,7 @@
 
     <!-- Booking Modal Styles -->
 <style>
-  .booking-modal { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; background: rgba(0,0,0,0.5); backdrop-filter: blur(3px); z-index: 9999; padding: 24px; }
+  .booking-modal { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; background: rgba(0,0,0,0.5); backdrop-filter: blur(3px); z-index: 9999; padding: 24px; overflow: auto; -webkit-overflow-scrolling: touch; }
   .booking-modal.is-open { display: flex; animation: bookingModalFadeIn 200ms ease-out; }
   @keyframes bookingModalFadeIn { from { opacity: 0; } to { opacity: 1; } }
   .booking-modal__content { position: relative; width: min(100%, 900px); max-height: 95vh; background: var(--background-color, #f2ede2); border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.25); overflow: auto; -webkit-overflow-scrolling: touch; border: 1px solid rgba(22,74,80,0.15); }
@@ -1474,6 +1474,7 @@
   .booking-modal__close:hover { transform: scale(1.06); }
   .booking-modal__overlay { position: absolute; inset: 0; }
   @media (max-width: 640px) { .booking-modal__content { width: 100%; border-radius: 12px; } .booking-modal__body iframe { height: 80vh; min-height: 420px; } }
+  @media (max-width: 420px) { .booking-modal { padding: 12px; } .booking-modal__content { border-radius: 10px; } }
 </style>
 
 <!-- Booking Modal Markup -->

@@ -1333,8 +1333,11 @@
           if (inCooldown()) return;
           let shown = false;
           function showOnce(){ if (shown) return; shown = true; openNewsletter(); }
+          let lastMouseY = window.innerHeight;
           document.addEventListener('mouseout', function(e){ if (e.clientY <= 0) showOnce(); });
-          document.addEventListener('mousemove', function(e){ if (e.clientY <= 10) showOnce(); }, { passive: true });
+          document.addEventListener('mousemove', function(e){ lastMouseY = e.clientY; if (e.clientY <= 10) showOnce(); }, { passive: true });
+          document.addEventListener('mouseleave', function(){ if (lastMouseY <= 10) showOnce(); }, { passive: true });
+          window.addEventListener('blur', showOnce);
           setTimeout(showOnce, 30000);
           function onScroll(){
             const scrollable = document.documentElement.scrollHeight - window.innerHeight;

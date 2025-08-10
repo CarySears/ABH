@@ -1852,10 +1852,11 @@
       let shown = false;
       function showOnce(){ if (shown) return; shown = true; openNewsletter(); }
       // Desktop: mouse leaves viewport top
-      document.addEventListener('mouseout', function(e){
-        if (e.clientY <= 0) showOnce();
-      });
-      document.addEventListener('mousemove', function(e){ if (e.clientY <= 10) showOnce(); }, { passive: true });
+      let lastMouseY = window.innerHeight;
+      document.addEventListener('mouseout', function(e){ if (e.clientY <= 0) showOnce(); });
+      document.addEventListener('mousemove', function(e){ lastMouseY = e.clientY; if (e.clientY <= 10) showOnce(); }, { passive: true });
+      document.addEventListener('mouseleave', function(){ if (lastMouseY <= 10) showOnce(); }, { passive: true });
+      window.addEventListener('blur', showOnce);
       // Fallback: after 30s
       setTimeout(showOnce, 30000);
       // Scroll depth > 50%

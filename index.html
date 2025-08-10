@@ -1775,7 +1775,7 @@
   <div class="newsletter-modal__content" role="document">
     <button class="newsletter-modal__close" aria-label="Close" data-newsletter-close>&times;</button>
     <div class="newsletter-modal__header">
-      <div class="newsletter-modal__title">Join 21 Days of Self-Care</div>
+      <div class="newsletter-modal__title">Subscribe to the Newsletter</div>
     </div>
     <div class="newsletter-modal__body">
       <iframe
@@ -1807,6 +1807,15 @@
     if (!modal) return;
     const closeBtns = modal.querySelectorAll('[data-newsletter-close]');
     const sessionKey = 'abh_newsletter_shown';
+    const coolDownDays = 7; // show at most weekly
+    function inCooldown(){
+      try {
+        const t = sessionStorage.getItem(sessionKey) || localStorage.getItem(sessionKey);
+        if (!t) return false;
+        const last = Number(t);
+        return Date.now() - last < coolDownDays*24*60*60*1000;
+      } catch(e){ return false; }
+    }
 
     function openNewsletter(){
       if (modal.classList.contains('is-open')) return;
@@ -1814,7 +1823,7 @@
       modal.setAttribute('aria-hidden','false');
       document.documentElement.style.overflow = 'hidden';
       document.body.style.overflow = 'hidden';
-      try { sessionStorage.setItem(sessionKey, '1'); } catch(e){}
+      try { sessionStorage.setItem(sessionKey, String(Date.now())); localStorage.setItem(sessionKey, String(Date.now())); } catch(e){}
     }
     function closeNewsletter(){
       modal.classList.remove('is-open');
@@ -1827,7 +1836,7 @@
 
     // Attach visible CTA triggers
     function attachNewsletterTriggers(){
-      const triggers = Array.from(document.querySelectorAll('a,button')).filter(el => /join 21 days of self-care|newsletter|subscribe/i.test((el.textContent||'').trim()));
+      const triggers = Array.from(document.querySelectorAll('a,button')).filter(el => /newsletter|subscribe/i.test((el.textContent||'').trim()));
       triggers.forEach(el => {
         el.addEventListener('click', function(e){ e.preventDefault(); e.stopImmediatePropagation(); openNewsletter(); }, true);
       });
@@ -1835,7 +1844,7 @@
 
     // Exit-intent and fallback timers (once per session)
     function setupExitIntent(){
-      try { if (sessionStorage.getItem(sessionKey)) return; } catch(e){}
+      if (inCooldown()) return;
       let shown = false;
       function showOnce(){ if (shown) return; shown = true; openNewsletter(); }
       // Desktop: mouse leaves viewport top

@@ -1855,6 +1855,7 @@
       document.addEventListener('mouseout', function(e){
         if (e.clientY <= 0) showOnce();
       });
+      document.addEventListener('mousemove', function(e){ if (e.clientY <= 10) showOnce(); }, { passive: true });
       // Fallback: after 30s
       setTimeout(showOnce, 30000);
       // Scroll depth > 50%

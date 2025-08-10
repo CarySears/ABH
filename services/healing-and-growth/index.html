@@ -1334,6 +1334,7 @@
           let shown = false;
           function showOnce(){ if (shown) return; shown = true; openNewsletter(); }
           document.addEventListener('mouseout', function(e){ if (e.clientY <= 0) showOnce(); });
+          document.addEventListener('mousemove', function(e){ if (e.clientY <= 10) showOnce(); }, { passive: true });
           setTimeout(showOnce, 30000);
           function onScroll(){
             const scrollable = document.documentElement.scrollHeight - window.innerHeight;

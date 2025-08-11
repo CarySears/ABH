@@ -313,17 +313,19 @@
 
         /* Offering Cards */
         .offerings-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin: 60px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin: 3rem 0;
         }
 
         .offering-card {
-            background: rgba(22, 74, 80, 0.03);
-            padding: 30px;
+            background: rgba(242, 237, 226, 0.95);
+            padding: 3rem;
             border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(22, 74, 80, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 1rem;
         }
 
         .offering-card:hover {

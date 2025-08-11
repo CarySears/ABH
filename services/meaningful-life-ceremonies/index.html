@@ -1165,5 +1165,222 @@
         );
     </script>
     <!-- End Engagement Widget Script -->
+
+<!-- Quiz Modal Styles -->
+<style>
+  .quiz-modal { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; background: rgba(0,0,0,0.5); backdrop-filter: blur(3px); z-index: 9999; padding: 24px; overflow: auto; -webkit-overflow-scrolling: touch; }
+  .quiz-modal.is-open { display: flex; animation: quizFadeIn 180ms ease-out; }
+  @keyframes quizFadeIn { from { opacity: 0; } to { opacity: 1; } }
+  .quiz-modal__content { position: relative; width: min(100%, 900px); max-height: 95vh; background: var(--background-color, #f2ede2); border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.25); overflow: auto; -webkit-overflow-scrolling: touch; border: 1px solid rgba(22,74,80,0.15); }
+  .quiz-modal__header { padding: 20px 24px; border-bottom: 1px solid rgba(22,74,80,0.12); }
+  .quiz-modal__title { font-family: 'ITC Clearface', serif; font-size: 1.5rem; color: var(--primary-color, #164a50); }
+  .quiz-modal__body { padding: 16px 20px 24px; }
+  .quiz-step { display: none; }
+  .quiz-step.active { display: block; }
+  .quiz-question { font-family: 'ITC Clearface', serif; font-size: 1.2rem; margin-bottom: 0.75rem; color: var(--primary-color, #164a50); }
+  .quiz-options { display: grid; gap: 10px; margin-bottom: 1rem; }
+  .quiz-option { display: flex; align-items: flex-start; gap: 10px; padding: 12px 14px; background: rgba(22,74,80,0.05); border: 1px solid rgba(22,74,80,0.12); border-radius: 10px; cursor: pointer; }
+  .quiz-option input { margin-top: 4px; }
+  .quiz-controls { display: flex; justify-content: space-between; gap: 10px; margin-top: 8px; }
+  .quiz-btn { appearance: none; border: none; padding: 12px 18px; border-radius: 10px; background: var(--sea-color, #164a50); color: #fff; cursor: pointer; font-weight: 600; }
+  .quiz-btn[disabled] { opacity: 0.5; cursor: not-allowed; }
+  .quiz-btn.secondary { background: rgba(22,74,80,0.1); color: var(--sea-color, #164a50); }
+  .quiz-result { text-align: left; }
+  .quiz-result h3 { font-family: 'ITC Clearface', serif; font-size: 1.4rem; color: var(--primary-color, #164a50); margin-bottom: 0.5rem; }
+  .quiz-result p { margin-bottom: 0.75rem; }
+  .quiz-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+  .quiz-modal__close { position: absolute; top: 10px; right: 10px; border: none; background: rgba(255,255,255,0.9); color: var(--primary-color, #164a50); width: 40px; height: 40px; border-radius: 50%; font-size: 24px; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+  @media (max-width: 640px) {
+    .quiz-modal__content { width: 100%; border-radius: 12px; }
+    .quiz-modal { padding: 12px; }
+    .quiz-modal__header { padding: 16px; }
+    .quiz-modal__body { padding: 12px 14px 18px; }
+    .quiz-btn { width: 100%; justify-content: center; }
+  }
+</style>
+
+<!-- Quiz Modal Markup -->
+<div id="quizModal" class="quiz-modal" aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="quiz-modal__content" role="document">
+    <button class="quiz-modal__close" aria-label="Close" data-quiz-close>&times;</button>
+    <div class="quiz-modal__header">
+      <div class="quiz-modal__title">Find Your Path Quiz</div>
+    </div>
+    <div class="quiz-modal__body">
+      <form id="pathQuizForm" novalidate>
+        <div class="quiz-step active" data-step="1">
+          <div class="quiz-question">What best describes where you are right now?</div>
+          <label class="quiz-option"><input type="radio" name="q1" value="healing"> I'm processing grief, burnout, anxiety, or seeking emotional healing</label>
+          <label class="quiz-option"><input type="radio" name="q1" value="writing"> I'm drawn to creative expression or feeling blocked in my writing</label>
+          <label class="quiz-option"><input type="radio" name="q1" value="ceremony"> I'm marking a major life moment and want a meaningful ceremony</label>
+          <div class="quiz-controls"><button type="button" class="quiz-btn" data-next disabled>Next</button></div>
+        </div>
+        <div class="quiz-step" data-step="2">
+          <div class="quiz-question">What kind of support feels most aligned?</div>
+          <label class="quiz-option"><input type="radio" name="q2" value="healing"> Somatic practices like breathwork, gentle presence, and emotional integration</label>
+          <label class="quiz-option"><input type="radio" name="q2" value="writing"> Guidance, structure, and reflection through writing or creativity</label>
+          <label class="quiz-option"><input type="radio" name="q2" value="ceremony"> Personalized ritual that honors a transition or milestone</label>
+          <div class="quiz-controls"><button type="button" class="quiz-btn secondary" data-prev>Back</button><button type="button" class="quiz-btn" data-next disabled>Next</button></div>
+        </div>
+        <div class="quiz-step" data-step="3">
+          <div class="quiz-question">How would you like to begin?</div>
+          <label class="quiz-option"><input type="radio" name="q3" value="healing"> A gentle 1:1 conversation to explore what's present</label>
+          <label class="quiz-option"><input type="radio" name="q3" value="writing"> A guided class or practice to build momentum</label>
+          <label class="quiz-option"><input type="radio" name="q3" value="ceremony"> Planning a ceremony that reflects my truth</label>
+          <div class="quiz-controls"><button type="button" class="quiz-btn secondary" data-prev>Back</button><button type="button" class="quiz-btn" data-next disabled>Next</button></div>
+        </div>
+        <div class="quiz-step" data-step="4">
+          <div class="quiz-question">What outcome are you most seeking right now?</div>
+          <label class="quiz-option"><input type="radio" name="q4" value="healing"> Emotional clarity, peace, and self-acceptance</label>
+          <label class="quiz-option"><input type="radio" name="q4" value="writing"> Self-expression, creative flow, and inner truth through words</label>
+          <label class="quiz-option"><input type="radio" name="q4" value="ceremony"> A sacred, personalized way to honor a life transition</label>
+          <div class="quiz-controls"><button type="button" class="quiz-btn secondary" data-prev>Back</button><button type="submit" class="quiz-btn" disabled>See My Path</button></div>
+        </div>
+        <div class="quiz-step" data-step="result">
+          <div class="quiz-result" id="quizResult"></div>
+          <div class="quiz-actions" id="quizActions"></div>
+          <div class="quiz-controls"><button type="button" class="quiz-btn secondary" data-restart>Restart Quiz</button><button type="button" class="quiz-btn" data-quiz-close>Close</button></div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Quiz Modal Script -->
+<script>
+  (function(){
+    const quizModal = document.getElementById('quizModal');
+    const form = document.getElementById('pathQuizForm');
+    const closeButtons = quizModal.querySelectorAll('[data-quiz-close]');
+
+    function openQuizModal(){
+      quizModal.classList.add('is-open');
+      quizModal.setAttribute('aria-hidden','false');
+      document.documentElement.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeQuizModal(){
+      quizModal.classList.remove('is-open');
+      quizModal.setAttribute('aria-hidden','true');
+      document.documentElement.style.overflow = '';
+      document.body.style.overflow = '';
+    }
+
+    closeButtons.forEach(btn => btn.addEventListener('click', closeQuizModal));
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && quizModal.classList.contains('is-open')) closeQuizModal();
+    });
+
+    function attachQuizTrigger(){
+      const triggers = Array.from(document.querySelectorAll('a, button')).filter(el => /find your path/i.test((el.textContent||'').trim()));
+      triggers.forEach(el => {
+        el.addEventListener('click', function(e){
+          e.preventDefault();
+          e.stopImmediatePropagation();
+          openQuizModal();
+        }, true);
+      });
+    }
+
+    function setStep(step){
+      quizModal.querySelectorAll('.quiz-step').forEach(s => s.classList.remove('active'));
+      const target = quizModal.querySelector('.quiz-step[data-step="'+ step +'"]');
+      if (target) target.classList.add('active');
+      // Enable/disable next buttons based on selection
+      const stepEl = target;
+      if (!stepEl) return;
+      const nextBtn = stepEl.querySelector('[data-next]') || stepEl.querySelector('[type="submit"]');
+      if (nextBtn) {
+        const radios = stepEl.querySelectorAll('input[type="radio"]');
+        const update = () => { nextBtn.disabled = !Array.from(radios).some(r => r.checked); };
+        radios.forEach(r => r.addEventListener('change', update));
+        update();
+      }
+    }
+
+    function nextStep(){
+      const active = quizModal.querySelector('.quiz-step.active');
+      const step = active ? active.getAttribute('data-step') : '1';
+      if (step === '1') setStep('2');
+      else if (step === '2') setStep('3');
+      else if (step === '3') setStep('4');
+    }
+
+    function prevStep(){
+      const active = quizModal.querySelector('.quiz-step.active');
+      const step = active ? active.getAttribute('data-step') : '1';
+      if (step === '4') setStep('3');
+      else if (step === '3') setStep('2');
+      else if (step === '2') setStep('1');
+    }
+
+    quizModal.addEventListener('click', function(e){
+      if (e.target.matches('[data-next]')) nextStep();
+      if (e.target.matches('[data-prev]')) prevStep();
+      if (e.target.matches('[data-restart]')) { form.reset(); setStep('1'); }
+    });
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      const data = new FormData(form);
+      const values = ['q1','q2','q3','q4'].map(k => data.get(k)).filter(Boolean);
+      const scores = { healing: 0, writing: 0, ceremony: 0 };
+      values.forEach(v => { if (scores[v] != null) scores[v]++; });
+      const ranking = Object.entries(scores).sort((a,b)=>b[1]-a[1]);
+      const top = ranking[0] ? ranking[0][0] : 'healing';
+
+      const resultBox = document.getElementById('quizResult');
+      const actions = document.getElementById('quizActions');
+      actions.innerHTML = '';
+      let title = '';
+      let desc = '';
+      let linkHref = '';
+      let services = '';
+      if (top === 'healing') {
+        title = 'Recommended Path: Healing & Growth';
+        desc = 'Begin with breath, presence, and compassionate support to heal and reconnect with yourself.';
+        linkHref = '../../services/healing-and-growth/';
+        services = 'Suggested services: Breathwork, 1:1 Emotional Healing Sessions, The Forgiveness Lab.';
+      } else if (top === 'writing') {
+        title = 'Recommended Path: Writing & Creativity Explorer';
+        desc = 'Explore your inner truth through writing, coaching, and creative practices that unlock growth.';
+        linkHref = '../../services/writing-and-creativity/';
+        services = 'Suggested services: Writing coaching, creative workshops, reflective practices.';
+      } else {
+        title = 'Recommended Path: Meaningful Life Ceremonies';
+        desc = 'Honor a milestone with a ceremony crafted with heart and aligned with your truth.';
+        linkHref = '../../services/meaningful-life-ceremonies/';
+        services = 'Suggested services: Personalized ceremonies and ritual design.';
+      }
+      resultBox.innerHTML = '<h3>'+ title +'</h3><p>'+ desc +'</p><p>'+ services +'</p>';
+      const explore = document.createElement('a');
+      explore.className = 'quiz-btn';
+      explore.href = linkHref;
+      explore.textContent = 'Explore this path';
+      const book = document.createElement('a');
+      book.className = 'quiz-btn secondary';
+      book.href = '#';
+      book.textContent = 'Book a Free Connection Call';
+      actions.appendChild(explore);
+      actions.appendChild(book);
+
+      // Reuse existing booking modal trigger by text
+      book.addEventListener('click', function(ev){ ev.preventDefault(); ev.stopImmediatePropagation();
+        const trigger = Array.from(document.querySelectorAll('a,button')).find(el=>/book a free connection/i.test((el.textContent||'').trim()));
+        if (trigger) trigger.click();
+      }, true);
+
+      setStep('result');
+    });
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function(){ attachQuizTrigger(); setStep('1'); });
+    } else {
+      attachQuizTrigger(); setStep('1');
+    }
+  })();
+</script>
+
 </body>
 </html>

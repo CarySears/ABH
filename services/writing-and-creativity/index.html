@@ -277,14 +277,26 @@
             width: 250px;
             margin-left: auto;
             margin-right: auto;
-            box-shadow: 0 4px 20px rgba(22, 74, 80, 0.2);
+            border: 5px solid var(--text-color);
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(163, 182, 229, 0.8) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(163, 182, 229, 0.6) 0%, transparent 50%),
+                radial-gradient(circle at 40% 70%, rgba(163, 182, 229, 0.4) 0%, transparent 50%),
+                radial-gradient(circle at 90% 80%, rgba(163, 182, 229, 0.5) 0%, transparent 50%),
+                linear-gradient(135deg, rgba(163, 182, 229, 0.3) 0%, rgba(163, 182, 229, 0.1) 100%),
+                var(--background-color);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.4);
             display: flex;
+            align-items: center;
+            justify-content: center;
             overflow: hidden;
         }
         .image-placeholder.hero-image picture, .image-placeholder.hero-image img {
-            width: 100%;
-            height: 100%;
+            width: 80%;
+            height: 80%;
             display: block;
+            border-radius: 50%;
+            object-fit: cover;
         }
         .image-placeholder.hero-image img { 
             object-fit: cover; 

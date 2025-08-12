@@ -370,6 +370,42 @@
             margin-bottom: 15px;
         }
 
+        /* Highlighted Sections */
+        .highlight-section {
+            background: var(--shell-color);
+            padding: 4rem;
+            border-radius: 12px;
+            margin: 4rem 0;
+            text-align: center;
+        }
+
+        .highlight-section h3 {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Feature Lists */
+        .feature-list {
+            text-align: left;
+            margin: 2rem 0;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .feature-list p {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .feature-list p:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
         /* Content Sections */
         .content-section {
             padding: 80px 0;
@@ -769,6 +805,10 @@
                 display: flex;
                 align-items: center;
             }
+
+            .highlight-section {
+                padding: 1.5rem;
+            }
         }
 
         /* Medium Mobile Screens */
@@ -973,24 +1013,28 @@
         </div>
     </section>
 
-    <section class="content-section accent-bg">
+    <section class="content-section">
         <div class="container">
-            <div class="section-content">
-                <h2>Not Sure Where to Begin?</h2>
-                <p class="large-text"><strong>You don't have to figure it out alone.</strong></p>
+            <div class="highlight-section">
+                <h3>Not Sure Where to Begin?</h3>
+                <p class="large-text">You don't have to figure it out alone.</p>
                 
-                <p class="large-text">If you're feeling drawn to this work but aren't sure which offering is right for you, you're warmly invited to book a free 15-minute connection call with Anna.</p>
+                <p>If you're feeling drawn to this work but aren't sure which offering is right for you, you're warmly invited to book a free 15-minute connection call with Anna.</p>
                 
-                <p class="large-text">In this short, supportive call, you'll:</p>
-                <ul class="styled-list">
-                    <li>Share where you are and what you're seeking.</li>
-                    <li>Ask any questions you have.</li>
-                    <li>Get gentle guidance on what next step may feel most aligned for you.</li>
-                </ul>
+                <div class="image-placeholder small" style="height:auto;border:none;background:none;padding:0;max-width:420px;margin:2rem auto;">
+                    <img src="https://storage.googleapis.com/msgsndr/jNqy5QsBJRJ9cjslwRNp/media/689a8b126bdeadc80e12700c.jpeg" alt="Supportive consultation scene" style="width:100%;height:auto;display:block;border-radius:12px;max-height:380px;object-fit:cover;" loading="lazy" decoding="async"/>
+                </div>
+
+                <h4>In this short, supportive call, you'll:</h4>
+                <div class="feature-list">
+                    <p>Share where you are and what you're seeking.</p>
+                    <p>Ask any questions you have.</p>
+                    <p>Get gentle guidance on what next step may feel most aligned for you.</p>
+                </div>
                 
-                <p class="large-text">No pressure. No sales. Just presence, clarity, and space to explore what's possible.</p>
+                <p>No pressure. No sales. Just presence, clarity, and space to explore what's possible.</p>
                 
-                <p class="centered-text large-text italic-text" style="margin-top: 2rem; margin-bottom: 1.5rem;">Because when your voice is met with compassion, transformation begins.</p>
+                <p class="large-text italic-text" style="margin-top: 2rem; margin-bottom: 1.5rem;">Because when your voice is met with compassion, transformation begins.</p>
                 
                 <a href="../../index.html#contact" class="cta-button">
                     Book a Free Connection Call

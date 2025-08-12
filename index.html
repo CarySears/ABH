@@ -204,6 +204,15 @@
             width: 80%;
         }
 
+        .nav-links a.active {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .nav-links a.active::after {
+            width: 80%;
+        }
+
         /* Hero Section with Parallax Background */
         .hero {
             position: relative;
@@ -1295,7 +1304,7 @@
                 Anna Brooke Healing
             </div>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
+                <li><a href="#home" class="active">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li>
                     <a href="#services">Services <span style="font-size: 0.8em; opacity: 0.7;">▼</span></a>

@@ -711,6 +711,20 @@
             text-decoration: none;
             font-size: 1.1rem;
             font-weight: 500;
+            display: block;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-nav a:hover {
+            background: rgba(22, 74, 80, 0.05);
+        }
+
+        .mobile-nav a.active {
+            color: var(--accent-color);
+            font-weight: 600;
+            background: rgba(255, 111, 97, 0.1);
         }
 
         /* Responsive Design */
@@ -887,7 +901,7 @@
     <div class="mobile-nav" id="mobileNav">
         <ul>
             <li><a href="../../index.html" onclick="closeMobileMenu()">Home</a></li>
-            <li><a href="../healing-and-growth/" onclick="closeMobileMenu()">Healing & Growth</a></li>
+            <li><a href="../healing-and-growth/" onclick="closeMobileMenu()" class="active">Healing & Growth</a></li>
             <li><a href="../meaningful-life-ceremonies/" onclick="closeMobileMenu()">Life Ceremonies</a></li>
             <li><a href="../writing-and-creativity/" onclick="closeMobileMenu()">Writing & Creativity</a></li>
             <li><a href="../../index.html#contact" onclick="closeMobileMenu()">Contact</a></li>

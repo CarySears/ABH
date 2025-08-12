@@ -486,6 +486,28 @@
             60% { transform: translateY(3px); }
         }
 
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInFromLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
         /* Hero Image */
         .image-placeholder {
             background: rgba(22, 74, 80, 0.05);
@@ -862,19 +884,11 @@
             background: rgba(22, 74, 80, 0.05);
         }
 
-                    .mobile-nav a.active {
-                color: var(--accent-color);
-                font-weight: 600;
-                background: rgba(255, 111, 97, 0.1);
-            }
-
-            .offering-card {
-                padding: 1.5rem;
-            }
-
-            .highlight-section {
-                padding: 1.5rem;
-            }
+        .mobile-nav a.active {
+            color: var(--accent-color);
+            font-weight: 600;
+            background: rgba(255, 111, 97, 0.1);
+        }
 
         /* Responsive Design */
         @media (max-width: 768px) {
@@ -932,6 +946,14 @@
                 min-height: 44px;
                 display: flex;
                 align-items: center;
+            }
+
+            .offering-card {
+                padding: 1.5rem;
+            }
+
+            .highlight-section {
+                padding: 1.5rem;
             }
         }
 
@@ -1020,7 +1042,9 @@
         <div class="hero-content">
             <div class="hero-text">
                 <div class="image-placeholder hero-image">
-                    <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=800&q=80" alt="Weddings & Life Ceremonies hero image" loading="eager" decoding="async" style="object-fit: cover; object-position: center;"/>
+                    <picture>
+                        <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=800&q=80" alt="Weddings & Life Ceremonies hero image" loading="eager" decoding="async"/>
+                    </picture>
                 </div>
                 <h1>Weddings & Life Ceremonies</h1>
                 <p class="hero-subtitle">Mark Your Moment With Meaning</p>

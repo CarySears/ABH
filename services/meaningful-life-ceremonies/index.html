@@ -459,6 +459,220 @@
             color: var(--text-color);
         }
 
+        /* Hero Styles */
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+            font-style: italic;
+        }
+
+        .hero-scroll-hint {
+            margin-top: 3rem;
+            font-style: italic;
+            opacity: 0.8;
+            animation: fadeInUp 1s ease-out 0.8s both;
+        }
+
+        .hero-scroll-hint .arrow {
+            display: inline-block;
+            animation: bounce 2s infinite;
+            margin-left: 0.5rem;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(5px); }
+            60% { transform: translateY(3px); }
+        }
+
+        /* Hero Image */
+        .image-placeholder {
+            background: rgba(22, 74, 80, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem 0;
+            border-radius: 12px;
+            color: rgba(22, 74, 80, 0.3);
+            font-style: italic;
+        }
+
+        .image-placeholder.small {
+            height: 200px;
+        }
+
+        .image-placeholder.hero-image {
+            height: 250px;
+            margin-bottom: 2rem;
+            border-radius: 50%;
+            width: 250px;
+            margin-left: auto;
+            margin-right: auto;
+            border: 6px solid var(--text-color);
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(163, 182, 229, 0.8) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(163, 182, 229, 0.6) 0%, transparent 50%),
+                radial-gradient(circle at 40% 70%, rgba(163, 182, 229, 0.4) 0%, transparent 50%),
+                radial-gradient(circle at 90% 80%, rgba(163, 182, 229, 0.5) 0%, transparent 50%),
+                linear-gradient(135deg, rgba(163, 182, 229, 0.3) 0%, rgba(163, 182, 229, 0.1) 100%),
+                var(--background-color);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .image-placeholder.hero-image picture {
+            width: 80%;
+            height: 80%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image-placeholder.hero-image img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        /* Content Sections */
+        .content-section {
+            padding: 80px 0;
+        }
+
+        .section-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .section-content h2 {
+            margin-bottom: 3rem;
+            line-height: 1.4;
+        }
+
+        .large-text {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .italic-text {
+            font-style: italic;
+        }
+
+        .centered-content {
+            text-align: center;
+        }
+
+        /* Offering Cards */
+        .offerings-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .offering-card {
+            background: rgba(242, 237, 226, 0.95);
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(22, 74, 80, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 1rem;
+        }
+
+        .offering-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 30px rgba(22, 74, 80, 0.15);
+        }
+
+        .offering-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .offering-card .subtitle {
+            font-style: italic;
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .offering-card h4 {
+            font-family: 'ITC Clearface', serif;
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+
+        /* Highlighted Sections */
+        .highlight-section {
+            background: var(--shell-color);
+            padding: 4rem;
+            border-radius: 12px;
+            margin: 4rem 0;
+            text-align: center;
+        }
+
+        .highlight-section h3 {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Feature Lists */
+        .feature-list {
+            text-align: left;
+            margin: 2rem 0;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .feature-list p {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .feature-list p:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* Styled Lists */
+        .styled-list {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+            max-width: 600px;
+            margin: 2rem auto;
+        }
+
+        .styled-list li {
+            padding-left: 1.8rem;
+            margin-bottom: 1rem;
+            position: relative;
+            line-height: 1.8;
+        }
+
+        .styled-list li:before {
+            content: "–";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
         .cta-button {
             font-family: 'Brandon Grotesque', 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             display: inline-block;
@@ -481,6 +695,42 @@
             color: var(--background-color);
             transform: translateY(-3px);
             box-shadow: 0 12px 35px rgba(22, 74, 80, 0.4);
+        }
+
+        .cta-button.primary {
+            background: var(--accent-color);
+            color: white;
+            border-color: var(--accent-color);
+            box-shadow: 0 4px 15px rgba(255, 111, 97, 0.3);
+        }
+
+        .cta-button.primary:hover {
+            background: #e5745d;
+            border-color: #e5745d;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 111, 97, 0.4);
+        }
+
+        .cta-button .cta-subtitle {
+            display: block;
+            font-size: 0.85rem;
+            opacity: 0.9;
+            font-weight: 400;
+            margin-top: 4px;
+        }
+
+        .cta-button.secondary {
+            background: rgba(22, 74, 80, 0.1);
+            color: var(--text-color);
+            border: 2px solid var(--text-color);
+            box-shadow: none;
+        }
+
+        .cta-button.secondary:hover {
+            background: var(--text-color);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(22, 74, 80, 0.3);
         }
 
         .cta-subtitle {
@@ -612,11 +862,19 @@
             background: rgba(22, 74, 80, 0.05);
         }
 
-        .mobile-nav a.active {
-            color: var(--accent-color);
-            font-weight: 600;
-            background: rgba(255, 111, 97, 0.1);
-        }
+                    .mobile-nav a.active {
+                color: var(--accent-color);
+                font-weight: 600;
+                background: rgba(255, 111, 97, 0.1);
+            }
+
+            .offering-card {
+                padding: 1.5rem;
+            }
+
+            .highlight-section {
+                padding: 1.5rem;
+            }
 
         /* Responsive Design */
         @media (max-width: 768px) {
@@ -761,49 +1019,179 @@
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <div class="hero-text">
-                <h1>Weddings & Other Life Ceremonies</h1>
-                <p class="hero-description">Honor life's sacred transitions with ceremonies that celebrate, heal, and transform. Create meaningful rituals for your most significant moments.</p>
-                <a href="../../index.html#contact" class="cta-button">Create Your Ceremony</a>
+                <div class="image-placeholder hero-image">
+                    <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=800&q=80" alt="Weddings & Life Ceremonies hero image" loading="eager" decoding="async" style="object-fit: cover; object-position: center;"/>
+                </div>
+                <h1>Weddings & Life Ceremonies</h1>
+                <p class="hero-subtitle">Mark Your Moment With Meaning</p>
+                <p class="hero-description">Personalized ceremonies to honor the sacred in life's big transitions.</p>
+                <a href="../../index.html#contact" class="cta-button primary">
+                    Book a Free Connection Call With Anna
+                    <span class="cta-subtitle">15-minutes</span>
+                </a>
+                <div class="hero-scroll-hint">Scroll to explore this path <span class="arrow">↓</span></div>
             </div>
         </div>
     </section>
 
-    <!-- Parallax Services Section Wrapper -->
-    <section class="parallax-services-wrapper">
-        <div class="parallax-services-bg"></div>
-        <div class="parallax-services-overlay"></div>
-        
-        <div class="services-content">
-            <div class="container">
-                <h2>Sacred Moments Deserve Sacred Attention</h2>
-                <p>Life presents us with thresholds—moments that call for something more than ordinary acknowledgment. Whether celebrating new beginnings, honoring endings, or marking significant passages, meaningful ceremonies create containers for transformation and healing.</p>
+    <section class="content-section">
+        <div class="container">
+            <div class="section-content">
+                <h2>Are you entering a new chapter, joining your life with another, or honoring the closing of a sacred cycle?</h2>
                 
-                <h3>Ceremony Types</h3>
-                <p><strong>Life Transition Ceremonies:</strong> Coming of age, career changes, retirement, moving, new relationships, or any significant life shift that deserves intentional recognition.</p>
+                <div class="image-placeholder" style="height:auto;border:none;background:none;padding:0;max-width:800px;margin:2rem auto;">
+                    <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=1200&q=80" alt="Life transitions and ceremonies" style="width:100%;height:auto;display:block;border-radius:12px;" loading="lazy" decoding="async">
+                </div>
+
+                <p class="large-text">Maybe you're preparing to say yes to love—with your partner, your path, or yourself.</p>
                 
-                <p><strong>Healing & Release Ceremonies:</strong> Divorce ceremonies, grief rituals, forgiveness ceremonies, or rituals to release what no longer serves your growth.</p>
+                <br>
                 
-                <p><strong>Celebration & Commitment Ceremonies:</strong> Weddings, commitment ceremonies, baby blessings, house blessings, or celebrations of personal achievements and milestones.</p>
+                <p class="large-text">Maybe you're navigating a moment of change that feels too important to pass unmarked.</p>
                 
-                <p><strong>Seasonal & Cyclical Ceremonies:</strong> Connecting with natural rhythms through solstice ceremonies, moon rituals, or personal anniversary celebrations.</p>
+                <br>
                 
-                <h3>The Ceremony Creation Process</h3>
-                <p>Every ceremony is co-created with you to reflect your values, beliefs, and the specific meaning of your transition. We begin with deep listening to understand what wants to be honored, then craft a ceremony that feels authentic and powerful for you.</p>
+                <p class="large-text">Or maybe you're honoring a life—yours or a loved one's—with a ceremony as heartfelt as the bond itself.</p>
                 
-                <p>Ceremonies can be intimate gatherings for one or two people, or larger community celebrations. They can incorporate elements from various traditions or be entirely secular, depending on what resonates with your heart and circumstances.</p>
+                <br>
                 
-                <h3>What's Included</h3>
-                <p><strong>Consultation & Design:</strong> Deep conversation about your needs, values, and vision for the ceremony</p>
-                <p><strong>Custom Ceremony Creation:</strong> Personalized ritual design with meaningful elements, words, and actions</p>
-                <p><strong>Ceremony Facilitation:</strong> Guiding the ceremony with presence, warmth, and skilled facilitation</p>
-                <p><strong>Keepsake Materials:</strong> Written ceremony script and any special materials created for your ritual</p>
+                <p class="large-text">Whether you're celebrating a wedding, marking a major transition, or creating a ritual of remembrance—this is your invitation to bring intention, soul, and sacredness to your special moment.</p>
                 
-                <h3>Investment</h3>
-                <p><strong>Intimate Ceremonies (1-6 people):</strong> $300-500 depending on complexity and location</p>
-                <p><strong>Community Ceremonies (7+ people):</strong> $500-800 depending on size and requirements</p>
-                <p><strong>Consultation Only:</strong> $150 for ceremony design you can facilitate yourself</p>
+                <br>
                 
-                <a href="../../index.html#contact" class="cta-button">Discuss Your Ceremony</a>
+                <p class="large-text italic-text">Here, ceremony isn't about performance.</p>
+                <p class="large-text italic-text">It's about presence. Meaning. Connection.</p>
+                <p class="large-text italic-text">And telling the truth of what matters most...</p>
+
+                <a href="../../index.html#contact" class="cta-button">
+                    Book a Free Connection Call
+                    <span class="cta-subtitle">15-minutes</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            <div class="section-content">
+                <h2>What You'll Find on This Pathway</h2>
+                <p class="large-text">Each offering is a sacred threshold: a moment to pause, reflect, and honor what's unfolding. Whether you're celebrating a union, navigating a turning point, or honoring someone's legacy, Anna helps you craft a ceremony that is intentional, soulful, and deeply personal.</p>
+                <p class="large-text">Let your heart guide you toward the ritual that's ready to be witnessed.</p>
+
+                <div class="offerings-grid">
+                    <div class="offering-card">
+                        <h3>Weddings with Soul</h3>
+                        <p class="subtitle">Your love is unique. Your ceremony should be, too.</p>
+                        <p class="subtitle">Sacred unions in all forms—crafted with care, joy, and depth.</p>
+                        
+                        <div class="image-placeholder small" style="height:auto;border:none;background:none;padding:0;max-width:520px;margin:2rem auto;">
+                            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80" alt="Wedding ceremony" style="width:100%;height:auto;display:block;border-radius:12px;" loading="lazy" decoding="async"/>
+                        </div>
+
+                        <p>Anna Brooke is an ordained Interfaith Minister and licensed Wedding Officiant, based in Midcoast Maine.</p>
+                        
+                        <p>She creates personalized wedding ceremonies, commitment ceremonies, and vow renewals that reflect your love story, values, and style—whether traditional or modern, serious or playful, religious or non-denominational.</p>
+                        
+                        <p>From intimate elopements to larger gatherings, Anna collaborates with you to create a wedding ceremony that is inclusive, personal, and unforgettable. Every word reflects your journey, your values, and the love you share.</p>
+                        
+                        <br>
+                        
+                        <p>With warmth, presence, and creativity, Anna helps couples celebrate their connection in a way that feels true to them.</p>
+                        
+                        <p>👉 <strong>Learn more about Anna's wedding ceremonies »</strong></p>
+                        
+                        <p><strong>Interested in working with Anna?</strong></p>
+                        <p>Schedule a free 15-minute connection call to explore availability and see if it's a fit.</p>
+                        
+                        <a href="../../index.html#contact" class="cta-button">
+                            Book a Free Connection Call
+                            <span class="cta-subtitle">15-minutes</span>
+                        </a>
+                    </div>
+
+                    <div class="offering-card">
+                        <h3>Life Ceremonies</h3>
+                        <p class="subtitle">Mark Your Milestones with Meaning and Heart</p>
+                        <p class="subtitle">Whether joyful or tender, these ceremonies provide a sacred space to pause, reflect, and mark the moment with intention.</p>
+                        
+                        <div class="image-placeholder small" style="height:auto;border:none;background:none;padding:0;max-width:520px;margin:2rem auto;">
+                            <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=800&q=80" alt="Life ceremony ritual" style="width:100%;height:auto;display:block;border-radius:12px;" loading="lazy" decoding="async"/>
+                        </div>
+
+                        <p>Life is filled with turning points—some chosen, some unexpected. Anna offers personalized ceremonies to help you honor these transitions with grace, truth, and presence.</p>
+                        
+                        <br>
+                        
+                        <p>These bespoke rituals are designed to witness and celebrate transition, creating a meaningful container for transformation.</p>
+                        
+                        <h4>Ceremonies may include:</h4>
+                        <ul class="styled-list">
+                            <li>Baby blessings and welcoming ceremonies</li>
+                            <li>Coming out celebrations and gender affirmations</li>
+                            <li>Name change rituals and identity reclamation</li>
+                            <li>Divorce healing and relationship closure</li>
+                            <li>Retirement, new beginnings, and letting go</li>
+                            <li>Or co-create a custom ceremony to honor any important life transition</li>
+                        </ul>
+                        
+                        <a href="../../index.html#contact" class="cta-button">
+                            Book A Free Connection Call
+                            <span class="cta-subtitle">15-minutes</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            <div class="section-content centered-content">
+                <h2>Why This Work Works</h2>
+                <p class="large-text">When life changes, ritual helps us witness it.</p>
+                
+                <p class="large-text">Ceremony brings presence to moments we might otherwise rush through—or struggle to express. It creates space for truth, community, and healing.</p>
+                
+                <div class="image-placeholder" style="height:auto;border:none;background:none;padding:0;max-width:800px;margin:3rem auto;">
+                    <img src="https://images.unsplash.com/photo-1464207687429-7505649dae38?w=1200&q=80" alt="Ceremonial ritual and meaning" style="width:100%;height:auto;display:block;border-radius:12px;" loading="lazy" decoding="async">
+                </div>
+                
+                <p class="large-text">Anna brings grounded calm, heart-centered listening, and poetic insight to every ceremony she leads—guiding you to mark your moment with the meaning it deserves.</p>
+                
+                <a href="../../index.html#contact" class="cta-button">
+                    Book a Free Connection Call
+                    <span class="cta-subtitle">15-minutes</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            <div class="highlight-section">
+                <h3>Not Sure Where to Begin?</h3>
+                <p class="large-text">You don't have to figure it out alone.</p>
+                
+                <p>If you're feeling drawn to this work but aren't sure which offering is right for you, you're warmly invited to book a free 15-minute connection call</p>
+                <p>with Anna.</p>
+                
+                <div class="image-placeholder small" style="height:auto;border:none;background:none;padding:0;max-width:420px;margin:2rem auto;">
+                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&q=80" alt="Supportive consultation scene" style="width:100%;height:auto;display:block;border-radius:12px;max-height:380px;object-fit:cover;" loading="lazy" decoding="async"/>
+                </div>
+
+                <h4>In this short, supportive call, you'll:</h4>
+                <div class="feature-list">
+                    <p>Share where you are and what you're seeking.</p>
+                    <p>Ask any questions you have.</p>
+                    <p>Receive thoughtful guidance on how ritual could support your journey.</p>
+                </div>
+                
+                <p>No pressure. Just presence, clarity, and care</p>
+                
+                <a href="../../index.html#contact" class="cta-button">
+                    Book a Free Connection Call
+                    <span class="cta-subtitle">15-minutes</span>
+                </a>
             </div>
         </div>
     </section>

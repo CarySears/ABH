@@ -1378,7 +1378,10 @@
       const maybeTriggers = Array.from(document.querySelectorAll('a, button'));
       const triggers = maybeTriggers.filter(function(el){
         const text = (el.textContent || '').trim();
-        return /book a free connection/i.test(text);
+        if (!/book a free connection/i.test(text)) return false;
+        const href = (el.getAttribute('href') || '').trim();
+        if (href.indexOf('https://link.actionpotential.ai/widget/booking/0uGlVpP0GyhE2YqaaqsE') !== -1) return false;
+        return true;
       });
       triggers.forEach(function(el){
         el.addEventListener('click', function(e){

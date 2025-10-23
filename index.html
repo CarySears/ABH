@@ -524,14 +524,15 @@
 
         .service-image {
             width: 100%;
-            height: 360px; /* increase displayed pixels for sharper appearance */
+            aspect-ratio: 3 / 2; /* uniform size across all three cards */
+            height: auto;
             overflow: hidden;
         }
 
         .service-image img {
             width: 100%;
             height: 100%;
-            object-fit: contain; /* match all three cards */
+            object-fit: cover; /* consistent visual fill across images */
             object-position: center center;
             image-rendering: -webkit-optimize-contrast;
             background: var(--background-color);

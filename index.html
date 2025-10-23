@@ -323,18 +323,17 @@
         }
 
         .anna-hero-image {
-            width: 300px;
-            height: 300px;
-            border-radius: 12px;
-            background: transparent;
+            width: 260px;
+            height: 360px; /* Portrait orientation */
+            border-radius: 15px;
+            background: var(--background-color);
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--text-color);
             font-family: 'Brandon Grotesque', 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             font-size: 1.3rem;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.4);
-            border: 6px solid var(--text-color);
+            border: none;
             position: relative;
             overflow: hidden;
         }
@@ -346,7 +345,7 @@
             left: -10px;
             right: -10px;
             bottom: -10px;
-            border-radius: 12px;
+            border-radius: 15px;
             background: transparent;
             z-index: -1;
         }
@@ -354,8 +353,8 @@
         .anna-hero-image img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            border-radius: 0;
+            object-fit: contain; /* match Meet Anna style */
+            border-radius: 15px;
         }
 
         /* Parallax Services Section */

@@ -546,6 +546,9 @@
         .service-content {
             flex: 1;
             padding: 2rem 2.5rem 0 2.5rem;
+            display: flex;
+            flex-direction: column;
+            min-height: 280px; /* normalize text block height across cards */
         }
 
         .service-content h3 {
@@ -554,7 +557,7 @@
 
         .service-card .service-button {
             margin: auto 2.5rem 2.5rem 2.5rem;
-            margin-top: auto;
+            margin-top: auto; /* ensures buttons align across equal-height content */
             padding: 12px 25px;
         }
 
@@ -1106,6 +1109,7 @@
 
             .service-content {
                 padding: 1.5rem 2rem 0 2rem;
+                min-height: 220px; /* adjusted for tablet */
             }
 
             .service-card .service-button {
@@ -1250,6 +1254,7 @@
 
             .service-content {
                 padding: 1.2rem 1.5rem 0 1.5rem;
+                min-height: 180px; /* adjusted for small screens */
             }
 
             .service-content h3 {

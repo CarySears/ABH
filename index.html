@@ -1323,7 +1323,17 @@
                     <div class="services-dropdown">
                         <div class="services-grid">
                             <a href="services/healing-and-growth/" class="service-item">
-                                <img src="assets/converted/healing-hero.jpg" alt="Healing & Growth">
+                                <picture>
+                                    <source type="image/webp" srcset="assets/converted/healing-hero.webp 1x, assets/converted/healing-hero.webp 2x">
+                                    <img
+                                      src="assets/converted/healing-hero.jpg"
+                                      srcset="assets/converted/healing-hero.jpg 1x, assets/converted/healing-hero.jpg 2x"
+                                      sizes="(min-width: 1024px) 250px, 50vw"
+                                      alt="Healing & Growth"
+                                      loading="eager" decoding="async" fetchpriority="high"
+                                      style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+                                    />
+                                </picture>
                                 <h3>Healing & Growth</h3>
                                 <p>Breathwork, somatic healing, and emotional integration to help you process grief, anxiety, and life transitions with compassionate support.</p>
                             </a>

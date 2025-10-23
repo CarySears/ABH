@@ -315,11 +315,11 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background: rgba(242, 237, 226, 0.95); /* Semi-transparent sand background */
-            padding: 1rem; /* slimmer outer padding to reduce side whitespace */
-            border-radius: 12px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+            background: transparent; /* remove outer square */
+            padding: 0; /* no extra padding around image */
+            border-radius: 0;
+            backdrop-filter: none;
+            box-shadow: none;
         }
 
         .anna-hero-image {

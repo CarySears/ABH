@@ -540,6 +540,14 @@
             overflow: hidden;
             position: relative;
         }
+        .image-placeholder.hero-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            box-shadow: inset 0 0 0 8px var(--background-color);
+            pointer-events: none;
+        }
 
         .image-placeholder.hero-image picture {
             width: auto;

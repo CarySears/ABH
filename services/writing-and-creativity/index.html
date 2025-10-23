@@ -460,10 +460,10 @@
 
         .parallax-services-bg {
             position: absolute;
-            top: -20%;
-            left: -20%;
-            width: 140%;
-            height: 140%;
+            top: -10vh;
+            left: -10vw;
+            width: 120vw;
+            height: 120vh;
             background-image: url('https://assets.cdn.filesafe.space/jNqy5QsBJRJ9cjslwRNp/media/44a94ead-8ce0-4d17-aeeb-4adfa1963160.jpg');
             background-size: cover;
             background-position: center;
@@ -1412,16 +1412,15 @@
                 parallaxBg.style.transform = `translateY(${speed}px)`;
             }
             
-            // Services parallax
+            // Services parallax (gentler, GPU-accelerated)
             const servicesParallaxBg = document.querySelector('.parallax-services-bg');
             if (servicesParallaxBg) {
                 const servicesSection = document.querySelector('.parallax-services-wrapper');
                 const rect = servicesSection.getBoundingClientRect();
                 const isInView = rect.top < window.innerHeight && rect.bottom > 0;
-                
                 if (isInView) {
-                    const speed = (scrolled - servicesSection.offsetTop) * 0.3;
-                    servicesParallaxBg.style.transform = `translateY(${speed}px)`;
+                    const speed = (scrolled - servicesSection.offsetTop) * 0.2;
+                    servicesParallaxBg.style.transform = `translate3d(0, ${speed}px, 0)`;
                 }
             }
         });

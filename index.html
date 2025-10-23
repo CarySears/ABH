@@ -376,6 +376,8 @@
             background-repeat: no-repeat;
             background-attachment: fixed;
             will-change: transform;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
             z-index: 1;
         }
 
@@ -2086,8 +2088,8 @@
                 const isInView = rect.top < window.innerHeight && rect.bottom > 0;
                 
                 if (isInView) {
-                    const speed = (scrolled - servicesSection.offsetTop) * 0.2; // gentler parallax to reduce blur perception
-                    servicesParallaxBg.style.transform = `translate3d(0, ${speed}px, 0)`; // use GPU for crisper rendering
+                    const speed = (scrolled - servicesSection.offsetTop) * 0.18; // slightly gentler
+                    servicesParallaxBg.style.transform = `translate3d(0, ${speed}px, 0)`; // GPU transform
                 }
             }
         });

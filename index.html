@@ -538,6 +538,7 @@
             image-rendering: -webkit-optimize-contrast;
             background: var(--background-color);
             transition: transform 0.3s ease;
+            image-rendering: crisp-edges; /* hint for sharper scaling where supported */
         }
 
         .service-card:hover .service-image img {
@@ -1437,7 +1438,14 @@
 
                 <div class="service-card">
                     <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1556703588-6eae2585e025?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wyNzQ4Mjd8MHwxfHNlYXJjaHwzfHxsaWdodHxlbnwwfHx8fDE3NTIwNjc4MTZ8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="Writing and Creativity - Warm light and inspiration" loading="eager" decoding="sync" style="object-position: center center; image-rendering: -webkit-optimize-contrast;">
+                        <img
+                          src="https://images.unsplash.com/photo-1556703588-6eae2585e025?auto=format&q=80&w=1200"
+                          srcset="https://images.unsplash.com/photo-1556703588-6eae2585e025?auto=format&q=80&w=1200 1200w, https://images.unsplash.com/photo-1556703588-6eae2585e025?auto=format&q=80&w=2400 2400w"
+                          sizes="(min-width: 1024px) 33vw, 100vw"
+                          alt="Writing and Creativity - Warm light and inspiration"
+                          loading="eager" decoding="async" fetchpriority="high"
+                          style="object-fit: cover; object-position: center center; width: 100%; height: 100%; image-rendering: -webkit-optimize-contrast;"
+                        />
                     </div>
                     <div class="service-content">
                         <h3>Writing & Creativity</h3>
@@ -1449,7 +1457,14 @@
 
                 <div class="service-card">
                     <div class="service-image">
-                        <img src="https://assets.cdn.filesafe.space/jNqy5QsBJRJ9cjslwRNp/media/686e6e17879662bfa844d778.png" alt="Weddings & Life Ceremonies - Sacred ceremonial moments" loading="eager" decoding="sync" style="object-fit: contain; object-position: center center; image-rendering: -webkit-optimize-contrast; width: 100%; height: 100%;">
+                        <img
+                          src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&q=80&w=1200"
+                          srcset="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&q=80&w=1200 1200w, https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&q=80&w=2400 2400w"
+                          sizes="(min-width: 1024px) 33vw, 100vw"
+                          alt="Weddings & Life Ceremonies - Sacred ceremonial moments"
+                          loading="eager" decoding="async" fetchpriority="high"
+                          style="object-fit: cover; object-position: center center; width: 100%; height: 100%; image-rendering: -webkit-optimize-contrast;"
+                        />
                     </div>
                     <div class="service-content">
                         <h3>Weddings & Life Ceremonies</h3>
